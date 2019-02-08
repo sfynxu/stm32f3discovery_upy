@@ -1,0 +1,10 @@
+Reading makefiles...
+Use make V=1 or set BUILD_VERBOSE in your environment to increase build verbosity.
+Updating goal targets....
+ File 'all' does not exist.
+   File 'build-STM32F3DISC/firmware.dfu' does not exist.
+     File 'build-STM32F3DISC/firmware.elf' does not exist.
+       File 'build-STM32F3DISC/py/mpstate.o' does not exist.
+         File 'build-STM32F3DISC/genhdr/qstrdefs.generated.h' does not exist.
+           File 'build-STM32F3DISC/modstm_qstr.h' does not exist.
+          Must remake target 'build-STM32F3DISC/modstm_qstr.h'.
