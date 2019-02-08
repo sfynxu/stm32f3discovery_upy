@@ -1,5 +1,5 @@
 #define MICROPY_HW_BOARD_NAME       "F3DISC"
-#define MICROPY_HW_MCU_NAME         "STM32F303xC"
+#define MICROPY_HW_MCU_NAME         "STM32F303"
 
 #define MICROPY_HW_HAS_SWITCH       (1)
 #define MICROPY_HW_HAS_FLASH        (1)
