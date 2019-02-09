@@ -60,15 +60,10 @@ def conditional_var(name_num):
     # then try UART4 first, and then try UART second.
     name, num = split_name_num(name_num)
     var = []
-    if num is None:
-	#Covers the case where name_num is CAN instead of CAN1
-	if name in CONDITIONAL_VAR:
-	    var.append(CONDITIONAL_VAR[name].format(num=''))
-    else:
-	if name in CONDITIONAL_VAR:
-            var.append(CONDITIONAL_VAR[name].format(num=num))
-	if name_num in CONDITIONAL_VAR:
-	    var.append(CONDITIONAL_VAR[name_num])
+    if name in CONDITIONAL_VAR:
+        var.append(CONDITIONAL_VAR[name].format(num=num))
+    if name_num in CONDITIONAL_VAR:
+        var.append(CONDITIONAL_VAR[name_num])
     return var
 
 def print_conditional_if(cond_var, file=None):
