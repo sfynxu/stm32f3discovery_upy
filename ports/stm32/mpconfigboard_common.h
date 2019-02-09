@@ -145,7 +145,7 @@
 #ifdef UART8
 #define MICROPY_HW_MAX_UART (8)
 #else
-#define MICROPY_HW_MAX_UART (6)
+#define MICROPY_HW_MAX_UART (5)
 #endif
 
 // Configuration for STM32F4 series

@@ -60,8 +60,8 @@
 #define MICROPY_HW_SPI2_MOSI (pin_B15)
 
 // CAN busses
-//#define MICROPY_HW_CAN1_TX (pin_B9)
-//#define MICROPY_HW_CAN1_RX (pin_B8)
+#define MICROPY_HW_CAN1_TX (pin_B9)
+#define MICROPY_HW_CAN1_RX (pin_B8)
 //#define MICROPY_HW_CAN2_TX (pin_B13)
 //#define MICROPY_HW_CAN2_RX (pin_B12)
 
@@ -78,9 +78,9 @@
 #define MICROPY_HW_LED9             (pin_E12) // blue south east
 #define MICROPY_HW_LED7             (pin_E11) // green east
 #define MICROPY_HW_LED5             (pin_E10) // orange north east
-#define MICROPY_HW_LED3             (pin_E9)  // red north 
+#define MICROPY_HW_LED3             (pin_E9)  // red north
 #define MICROPY_HW_LED4             (pin_E8)  // blue north west
-
+#define MICROPY_HW_LED2		    (pin_E9)  // added for reset mode purpose (LED2 is on STLINK)
 
 //#define MICROPY_HW_LED2             (pin_D12) // green
 //#define MICROPY_HW_LED3             (pin_D13) // orange
