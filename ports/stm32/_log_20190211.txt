@@ -1,0 +1,4 @@
+python ../../py/makeversionhdr.py build-STM32F3DISC/genhdr/mpversion.h
+CC ../../py/scheduler.c
+arm-none-eabi-gcc -I. -I../.. -Ibuild-STM32F3DISC -I../../lib/cmsis/inc -I../../lib/stm32lib/CMSIS/STM32F3xx/Include/ -I../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc -Iusbdev/core/inc -Iusbdev/class/inc -I../../lib/lwip/src/include -Ilwip_inc -Wall -Wpointer-arith -Werror -std=gnu99 -nostdlib -DFFCONF_H=\"lib/oofatfs/ffconf.h\"  -DSTM32F303xC  -Os -DNDEBUG -Iboards/STM32F3DISC -DSTM32_HAL_H='<stm32f3xx_hal.h>' -DMICROPY_HW_VTOR=0x08000000 -DMICROPY_FLOAT_IMPL=MICROPY_FLOAT_IMPL_FLOAT -fsingle-precision-constant -Wdouble-promotion -fdata-sections -ffunction-sections -DMICROPY_QSTR_EXTRA_POOL=mp_qstr_frozen_const_pool -DMICROPY_MODULE_FROZEN_MPY -c -MD -o build-STM32F3DISC/py/scheduler.o ../../py/scheduler.c
+../../py/mkrules.mk:47: recipe for target 'build-STM32F3DISC/py/scheduler.o' failed
