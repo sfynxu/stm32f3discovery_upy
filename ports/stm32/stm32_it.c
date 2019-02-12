@@ -414,7 +414,7 @@ STATIC void OTG_CMD_WKUP_Handler(PCD_HandleTypeDef *pcd_handle) {
     #endif
 
     /* ungate PHY clock */
-     __HAL_PCD_UNGATE_PHYCLOCK(pcd_handle);
+    __HAL_PCD_UNGATE_PHYCLOCK(pcd_handle);
   }
 
 }
