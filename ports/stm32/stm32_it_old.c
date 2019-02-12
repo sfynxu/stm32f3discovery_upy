@@ -311,7 +311,7 @@ void SysTick_Handler(void) {
     // Note: we don't need uwTick to be declared volatile here because this is
     // the only place where it can be modified, and the code is more efficient
     // without the volatile specifier.
-    extern __IO uint32_t uwTick; // added __IO
+    extern uint32_t uwTick;
     uwTick += 1;
 
     // Read the systick control regster. This has the side effect of clearing
