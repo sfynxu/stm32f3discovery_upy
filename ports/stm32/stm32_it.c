@@ -414,7 +414,9 @@ STATIC void OTG_CMD_WKUP_Handler(PCD_HandleTypeDef *pcd_handle) {
     #endif
 
     /* ungate PHY clock */
-    __HAL_PCD_UNGATE_PHYCLOCK(pcd_handle);
+    #if defined(__HAL_PCD_UNGATE_PHYCLOCK)
+   	 __HAL_PCD_UNGATE_PHYCLOCK(pcd_handle);
+    #endif
   }
 
 }
@@ -432,8 +434,8 @@ void OTG_FS_WKUP_IRQHandler(void) {
   OTG_CMD_WKUP_Handler(&pcd_fs_handle);
 
   /* Clear EXTI pending Bit*/
-  __HAL_USB_FS_EXTI_CLEAR_FLAG();
-
+    __HAL_USB_FS_EXTI_CLEAR_FLAG();
+  
     IRQ_EXIT(OTG_FS_WKUP_IRQn);
 }
 #endif
