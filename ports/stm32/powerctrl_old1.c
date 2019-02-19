@@ -30,7 +30,7 @@
 #include "rtc.h"
 #include "genhdr/pllfreqtable.h"
 
-#if !defined(STM32F0)
+#if !(defined(STM32F0) || defined(STM32F3)) //F3 assumed to be the same
 
 // Assumes that PLL is used as the SYSCLK source
 int powerctrl_rcc_clock_config_pll(RCC_ClkInitTypeDef *rcc_init, uint32_t sysclk_mhz, bool need_pllsai) {
