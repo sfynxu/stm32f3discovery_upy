@@ -1,0 +1,37 @@
+timer.c:757:15: error: array index in initializer exceeds array bounds
+     TIM_ENTRY(15, TIM1_BRK_TIM15_IRQn),
+               ^
+timer.c:701:29: note: in definition of macro 'TIM_ENTRY'
+ #define TIM_ENTRY(id, irq) [id - 1] = (uint32_t)TIM##id | irq
+                             ^~
+timer.c:757:15: note: (near initialization for 'tim_instance_table')
+     TIM_ENTRY(15, TIM1_BRK_TIM15_IRQn),
+               ^
+timer.c:701:29: note: in definition of macro 'TIM_ENTRY'
+ #define TIM_ENTRY(id, irq) [id - 1] = (uint32_t)TIM##id | irq
+                             ^~
+timer.c:764:15: error: array index in initializer exceeds array bounds
+     TIM_ENTRY(16, TIM1_UP_TIM16_IRQn),
+               ^
+timer.c:701:29: note: in definition of macro 'TIM_ENTRY'
+ #define TIM_ENTRY(id, irq) [id - 1] = (uint32_t)TIM##id | irq
+                             ^~
+timer.c:764:15: note: (near initialization for 'tim_instance_table')
+     TIM_ENTRY(16, TIM1_UP_TIM16_IRQn),
+               ^
+timer.c:701:29: note: in definition of macro 'TIM_ENTRY'
+ #define TIM_ENTRY(id, irq) [id - 1] = (uint32_t)TIM##id | irq
+                             ^~
+timer.c:771:15: error: array index in initializer exceeds array bounds
+     TIM_ENTRY(17, TIM1_TRG_COM_TIM17_IRQn),
+               ^
+timer.c:701:29: note: in definition of macro 'TIM_ENTRY'
+ #define TIM_ENTRY(id, irq) [id - 1] = (uint32_t)TIM##id | irq
+                             ^~
+timer.c:771:15: note: (near initialization for 'tim_instance_table')
+     TIM_ENTRY(17, TIM1_TRG_COM_TIM17_IRQn),
+               ^
+timer.c:701:29: note: in definition of macro 'TIM_ENTRY'
+ #define TIM_ENTRY(id, irq) [id - 1] = (uint32_t)TIM##id | irq
+                             ^~
+make: *** [build-STM32F3DISC/timer.o] Error 1
