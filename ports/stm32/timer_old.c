@@ -656,15 +656,6 @@ STATIC mp_obj_t pyb_timer_init_helper(pyb_timer_obj_t *self, size_t n_args, cons
         #if defined(TIM17)
         case 17: __HAL_RCC_TIM17_CLK_ENABLE(); break;
         #endif
-        #if defined(TIM18)
-        case 18: __HAL_RCC_TIM18_CLK_ENABLE(); break;
-        #endif
-        #if defined(TIM19)
-        case 19: __HAL_RCC_TIM19_CLK_ENABLE(); break;
-        #endif
-        #if defined(TIM20)
-        case 20: __HAL_RCC_TIM20_CLK_ENABLE(); break;
-        #endif
     }
 
     // set IRQ priority (if not a special timer)
@@ -760,7 +751,7 @@ STATIC const uint32_t tim_instance_table[MICROPY_HW_MAX_TIMER] = {
     TIM_ENTRY(14, TIM8_TRG_COM_TIM14_IRQn),
     #endif
     #if defined(TIM15)
-    #if defined(STM32F0) || defined(STM32H7) || defined(STM32F3)    // added STM32F3
+    #if defined(STM32F0) || defined(STM32H7)
     TIM_ENTRY(15, TIM15_IRQn),
     #else
     TIM_ENTRY(15, TIM1_BRK_TIM15_IRQn),
