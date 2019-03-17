@@ -141,7 +141,8 @@
 
 #define MP_HAL_UNIQUE_ID_ADDRESS (0x1ffff7ac)
 #define PYB_EXTI_NUM_VECTORS (28)
-#define MICROPY_HW_MAX_TIMER (14)
+//#define MICROPY_HW_MAX_TIMER (14)
+#define MICROPY_HW_MAX_TIMER (17) // same as STM32F0 STM32F4
 #ifdef UART8
 #define MICROPY_HW_MAX_UART (8)
 #else
