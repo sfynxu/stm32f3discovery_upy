@@ -103,7 +103,7 @@ static const DMA_InitTypeDef dma_init_struct_sdio = {
     .MemDataAlignment    = DMA_MDATAALIGN_WORD,
     #if defined(STM32F4) || defined(STM32F7)
     .Mode                = DMA_PFCTRL,
-    #elif defined(STM32L4)
+    #elif defined(STM32L4) || defined(STM32F3)
     .Mode                = DMA_NORMAL,
     #endif
     .Priority            = DMA_PRIORITY_VERY_HIGH,
@@ -161,7 +161,7 @@ static const DMA_InitTypeDef dma_init_struct_dcmi = {
 };
 #endif
 
-#if defined(STM32F0) || defined(STM32F3)
+#if defined(STM32F0)
 
 #define NCONTROLLERS            (2)
 #define NSTREAMS_PER_CONTROLLER (7)
@@ -200,7 +200,7 @@ static const uint8_t dma_irqn[NSTREAM] = {
     0,
 };
 
-#elif defined(STM32F4) || defined(STM32F7)
+#elif defined(STM32F4) || defined(STM32F7) 
 
 #define NCONTROLLERS            (2)
 #define NSTREAMS_PER_CONTROLLER (8)
@@ -435,6 +435,34 @@ static const uint8_t dma_irqn[NSTREAM] = {
     DMA2_Stream7_IRQn,
 };
 
+#elif defined(STM32F3)
+
+#define NCONTROLLERS            (2)
+#define NSTREAMS_PER_CONTROLLER (7)
+#define NSTREAM                 (NCONTROLLERS * NSTREAMS_PER_CONTROLLER)
+
+#define DMA_SUB_INSTANCE_AS_UINT8(dma_channel) (dma_channel)
+
+#define DMA1_ENABLE_MASK (0x00ff) // Bits in dma_enable_mask corresponding to DMA1
+#define DMA2_ENABLE_MASK (0x0f80) // Bits in dma_enable_mask corresponding to DMA2 (only 5 channels)
+
+static const uint8_t dma_irqn[NSTREAM] = {
+    DMA1_Channel1_IRQn,
+    DMA1_Channel2_IRQn,
+    DMA1_Channel3_IRQn,
+    DMA1_Channel4_IRQn,
+    DMA1_Channel5_IRQn,
+    DMA1_Channel6_IRQn,
+    DMA1_Channel7_IRQn,
+    DMA2_Channel1_IRQn,
+    DMA2_Channel2_IRQn,
+    DMA2_Channel3_IRQn,
+    DMA2_Channel4_IRQn,
+    DMA2_Channel5_IRQn,
+};
+
+
+#else
 #endif
 
 static DMA_HandleTypeDef *dma_handle[NSTREAM] = {NULL};
@@ -444,7 +472,7 @@ volatile dma_idle_count_t dma_idle;
 
 #define DMA_INVALID_CHANNEL 0xff    // Value stored in dma_last_channel which means invalid
 
-#if defined(STM32F0)
+#if defined(STM32F0) || defined(STM32F3)
 #define DMA1_IS_CLK_ENABLED()   ((RCC->AHBENR & RCC_AHBENR_DMA1EN) != 0)
 #define DMA2_IS_CLK_ENABLED()   ((RCC->AHBENR & RCC_AHBENR_DMA2EN) != 0)
 #else
@@ -452,7 +480,7 @@ volatile dma_idle_count_t dma_idle;
 #define DMA2_IS_CLK_ENABLED()   ((RCC->AHB1ENR & RCC_AHB1ENR_DMA2EN) != 0)
 #endif
 
-#if defined(STM32F0)
+#if defined(STM32F0) || defined(STM32F3)
 
 void DMA1_Ch1_IRQHandler(void) {
     IRQ_ENTER(DMA1_Ch1_IRQn);
@@ -511,7 +539,7 @@ void DMA2_Stream5_IRQHandler(void) { IRQ_ENTER(DMA2_Stream5_IRQn); if (dma_handl
 void DMA2_Stream6_IRQHandler(void) { IRQ_ENTER(DMA2_Stream6_IRQn); if (dma_handle[dma_id_14] != NULL) { HAL_DMA_IRQHandler(dma_handle[dma_id_14]); } IRQ_EXIT(DMA2_Stream6_IRQn); }
 void DMA2_Stream7_IRQHandler(void) { IRQ_ENTER(DMA2_Stream7_IRQn); if (dma_handle[dma_id_15] != NULL) { HAL_DMA_IRQHandler(dma_handle[dma_id_15]); } IRQ_EXIT(DMA2_Stream7_IRQn); }
 
-#elif defined(STM32L4)
+#elif defined(STM32L4) || defined(STM32F3)
 
 void DMA1_Channel1_IRQHandler(void) { IRQ_ENTER(DMA1_Channel1_IRQn); if (dma_handle[dma_id_0] != NULL) { HAL_DMA_IRQHandler(dma_handle[dma_id_0]); } IRQ_EXIT(DMA1_Channel1_IRQn); }
 void DMA1_Channel2_IRQHandler(void) { IRQ_ENTER(DMA1_Channel2_IRQn); if (dma_handle[dma_id_1] != NULL) { HAL_DMA_IRQHandler(dma_handle[dma_id_1]); } IRQ_EXIT(DMA1_Channel2_IRQn); }

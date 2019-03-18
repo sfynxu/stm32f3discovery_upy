@@ -1,63 +1,13 @@
-dma.c:177:51: error: 'HAL_DMA1_CH3_DAC_CH1' undeclared here (not in a function)
- const dma_descr_t dma_DAC_1_TX = { DMA1_Channel3, HAL_DMA1_CH3_DAC_CH1, dma_id_2, &dma_init_struct_dac };
-                                                   ^~~~~~~~~~~~~~~~~~~~
-dma.c:178:51: error: 'HAL_DMA1_CH4_DAC_CH2' undeclared here (not in a function)
- const dma_descr_t dma_DAC_2_TX = { DMA1_Channel4, HAL_DMA1_CH4_DAC_CH2, dma_id_3, &dma_init_struct_dac };
-                                                   ^~~~~~~~~~~~~~~~~~~~
-dma.c:180:51: error: 'HAL_DMA1_CH5_SPI2_TX' undeclared here (not in a function)
- const dma_descr_t dma_SPI_2_TX = { DMA1_Channel5, HAL_DMA1_CH5_SPI2_TX, dma_id_4, &dma_init_struct_spi_i2c};
-                                                   ^~~~~~~~~~~~~~~~~~~~
-dma.c:181:51: error: 'HAL_DMA1_CH6_SPI2_RX' undeclared here (not in a function)
- const dma_descr_t dma_SPI_2_RX = { DMA1_Channel6, HAL_DMA1_CH6_SPI2_RX, dma_id_5, &dma_init_struct_spi_i2c};
-                                                   ^~~~~~~~~~~~~~~~~~~~
-dma.c:182:51: error: 'HAL_DMA2_CH3_SPI1_RX' undeclared here (not in a function)
- const dma_descr_t dma_SPI_1_RX = { DMA2_Channel3, HAL_DMA2_CH3_SPI1_RX, dma_id_9, &dma_init_struct_spi_i2c};
-                                                   ^~~~~~~~~~~~~~~~~~~~
-dma.c:183:51: error: 'HAL_DMA2_CH4_SPI1_TX' undeclared here (not in a function)
- const dma_descr_t dma_SPI_1_TX = { DMA2_Channel4, HAL_DMA2_CH4_SPI1_TX, dma_id_10, &dma_init_struct_spi_i2c};
-                                                   ^~~~~~~~~~~~~~~~~~~~
-dma.c:186:5: error: 'DMA1_Ch1_IRQn' undeclared here (not in a function)
-     DMA1_Ch1_IRQn,
-     ^~~~~~~~~~~~~
-dma.c:187:5: error: 'DMA1_Ch2_3_DMA2_Ch1_2_IRQn' undeclared here (not in a function)
-     DMA1_Ch2_3_DMA2_Ch1_2_IRQn,
-     ^~~~~~~~~~~~~~~~~~~~~~~~~~
-dma.c:189:5: error: 'DMA1_Ch4_7_DMA2_Ch3_5_IRQn' undeclared here (not in a function)
-     DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
-     ^~~~~~~~~~~~~~~~~~~~~~~~~~
-dma.c: In function 'dma_enable_clock':
-dma.c:451:38: error: 'RCC_TypeDef {aka struct <anonymous>}' has no member named 'AHB1ENR'; did you mean 'AHBENR'?
- #define DMA1_IS_CLK_ENABLED()   ((RCC->AHB1ENR & RCC_AHB1ENR_DMA1EN) != 0)
-                                      ^
-dma.c:547:61: note: in expansion of macro 'DMA1_IS_CLK_ENABLED'
-         if (((old_enable_mask & DMA1_ENABLE_MASK) == 0) && !DMA1_IS_CLK_ENABLED()) {
-                                                             ^~~~~~~~~~~~~~~~~~~
-dma.c:451:50: error: 'RCC_AHB1ENR_DMA1EN' undeclared (first use in this function)
- #define DMA1_IS_CLK_ENABLED()   ((RCC->AHB1ENR & RCC_AHB1ENR_DMA1EN) != 0)
-                                                  ^
-dma.c:547:61: note: in expansion of macro 'DMA1_IS_CLK_ENABLED'
-         if (((old_enable_mask & DMA1_ENABLE_MASK) == 0) && !DMA1_IS_CLK_ENABLED()) {
-                                                             ^~~~~~~~~~~~~~~~~~~
-dma.c:451:50: note: each undeclared identifier is reported only once for each function it appears in
- #define DMA1_IS_CLK_ENABLED()   ((RCC->AHB1ENR & RCC_AHB1ENR_DMA1EN) != 0)
-                                                  ^
-dma.c:547:61: note: in expansion of macro 'DMA1_IS_CLK_ENABLED'
-         if (((old_enable_mask & DMA1_ENABLE_MASK) == 0) && !DMA1_IS_CLK_ENABLED()) {
-                                                             ^~~~~~~~~~~~~~~~~~~
-dma.c:452:38: error: 'RCC_TypeDef {aka struct <anonymous>}' has no member named 'AHB1ENR'; did you mean 'AHBENR'?
- #define DMA2_IS_CLK_ENABLED()   ((RCC->AHB1ENR & RCC_AHB1ENR_DMA2EN) != 0)
-                                      ^
-dma.c:558:61: note: in expansion of macro 'DMA2_IS_CLK_ENABLED'
-         if (((old_enable_mask & DMA2_ENABLE_MASK) == 0) && !DMA2_IS_CLK_ENABLED()) {
-                                                             ^~~~~~~~~~~~~~~~~~~
-dma.c:452:50: error: 'RCC_AHB1ENR_DMA2EN' undeclared (first use in this function)
- #define DMA2_IS_CLK_ENABLED()   ((RCC->AHB1ENR & RCC_AHB1ENR_DMA2EN) != 0)
-                                                  ^
-dma.c:558:61: note: in expansion of macro 'DMA2_IS_CLK_ENABLED'
-         if (((old_enable_mask & DMA2_ENABLE_MASK) == 0) && !DMA2_IS_CLK_ENABLED()) {
-                                                             ^~~~~~~~~~~~~~~~~~~
 dma.c: In function 'dma_init_handle':
-dma.c:588:14: error: 'DMA_InitTypeDef {aka struct <anonymous>}' has no member named 'Channel'
+dma.c:616:14: error: 'DMA_InitTypeDef {aka struct <anonymous>}' has no member named 'Channel'
      dma->Init.Channel = dma_descr->sub_instance;
               ^
+At top level:
+dma.c:121:30: error: 'dma_init_struct_dac' defined but not used [-Werror=unused-const-variable=]
+ static const DMA_InitTypeDef dma_init_struct_dac = {
+                              ^~~~~~~~~~~~~~~~~~~
+dma.c:70:30: error: 'dma_init_struct_spi_i2c' defined but not used [-Werror=unused-const-variable=]
+ static const DMA_InitTypeDef dma_init_struct_spi_i2c = {
+                              ^~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
 make: *** [build-STM32F3DISC/dma.o] Error 1

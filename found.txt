@@ -1,0 +1,7 @@
+lib/stm32lib/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h:#define HAL_DMA1_CH3_DAC_CH1      (uint32_t) (DMA1_CHANNEL3_RMP | DMA1_CSELR_CH3_DAC_CH1)   /*!< Remap DAC Channel 1on DMA1 channel 3 */
+lib/stm32lib/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma_ex.h:                                    ((REQUEST) == HAL_DMA1_CH3_DAC_CH1)   ||\
+ports/stm32/build-STM32F3DISC/genhdr/qstr.i.last:const dma_descr_t dma_DAC_1_TX = { ((DMA_Channel_TypeDef *) ((((uint32_t)0x40000000U) + 0x00020000U) + 0x00000030U)), HAL_DMA1_CH3_DAC_CH1, dma_id_2, &dma_init_struct_dac };
+ports/stm32/dma_old.c:const dma_descr_t dma_DAC_1_TX = { DMA1_Channel3, HAL_DMA1_CH3_DAC_CH1, dma_id_2, &dma_init_struct_dac };
+ports/stm32/err.log:dma.c:177:51: error: 'HAL_DMA1_CH3_DAC_CH1' undeclared here (not in a function)
+ports/stm32/err.log: const dma_descr_t dma_DAC_1_TX = { DMA1_Channel3, HAL_DMA1_CH3_DAC_CH1, dma_id_2, &dma_init_struct_dac };
+ports/stm32/dma.c:const dma_descr_t dma_DAC_1_TX = { DMA1_Channel3, HAL_DMA1_CH3_DAC_CH1, dma_id_2, &dma_init_struct_dac };
