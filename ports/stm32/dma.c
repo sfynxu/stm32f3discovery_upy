@@ -161,7 +161,7 @@ static const DMA_InitTypeDef dma_init_struct_dcmi = {
 };
 #endif
 
-#if defined(STM32F0)
+#if defined(STM32F0) || defined(STM32F3)
 
 #define NCONTROLLERS            (2)
 #define NSTREAMS_PER_CONTROLLER (7)

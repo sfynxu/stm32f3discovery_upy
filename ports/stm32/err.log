@@ -1,18 +1,31 @@
-dma.c:440:38: error: 'NSTREAM' undeclared here (not in a function)
- static DMA_HandleTypeDef *dma_handle[NSTREAM] = {NULL};
-                                      ^~~~~~~
-dma.c: In function 'dma_tickle':
-dma.c:535:32: error: 'NSTREAMS_PER_CONTROLLER' undeclared (first use in this function)
-     dma_idle.counter[(dma_id < NSTREAMS_PER_CONTROLLER) ? 0 : 1] = 1;
-                                ^~~~~~~~~~~~~~~~~~~~~~~
-dma.c:535:32: note: each undeclared identifier is reported only once for each function it appears in
+dma.c:177:51: error: 'HAL_DMA1_CH3_DAC_CH1' undeclared here (not in a function)
+ const dma_descr_t dma_DAC_1_TX = { DMA1_Channel3, HAL_DMA1_CH3_DAC_CH1, dma_id_2, &dma_init_struct_dac };
+                                                   ^~~~~~~~~~~~~~~~~~~~
+dma.c:178:51: error: 'HAL_DMA1_CH4_DAC_CH2' undeclared here (not in a function)
+ const dma_descr_t dma_DAC_2_TX = { DMA1_Channel4, HAL_DMA1_CH4_DAC_CH2, dma_id_3, &dma_init_struct_dac };
+                                                   ^~~~~~~~~~~~~~~~~~~~
+dma.c:180:51: error: 'HAL_DMA1_CH5_SPI2_TX' undeclared here (not in a function)
+ const dma_descr_t dma_SPI_2_TX = { DMA1_Channel5, HAL_DMA1_CH5_SPI2_TX, dma_id_4, &dma_init_struct_spi_i2c};
+                                                   ^~~~~~~~~~~~~~~~~~~~
+dma.c:181:51: error: 'HAL_DMA1_CH6_SPI2_RX' undeclared here (not in a function)
+ const dma_descr_t dma_SPI_2_RX = { DMA1_Channel6, HAL_DMA1_CH6_SPI2_RX, dma_id_5, &dma_init_struct_spi_i2c};
+                                                   ^~~~~~~~~~~~~~~~~~~~
+dma.c:182:51: error: 'HAL_DMA2_CH3_SPI1_RX' undeclared here (not in a function)
+ const dma_descr_t dma_SPI_1_RX = { DMA2_Channel3, HAL_DMA2_CH3_SPI1_RX, dma_id_9, &dma_init_struct_spi_i2c};
+                                                   ^~~~~~~~~~~~~~~~~~~~
+dma.c:183:51: error: 'HAL_DMA2_CH4_SPI1_TX' undeclared here (not in a function)
+ const dma_descr_t dma_SPI_1_TX = { DMA2_Channel4, HAL_DMA2_CH4_SPI1_TX, dma_id_10, &dma_init_struct_spi_i2c};
+                                                   ^~~~~~~~~~~~~~~~~~~~
+dma.c:186:5: error: 'DMA1_Ch1_IRQn' undeclared here (not in a function)
+     DMA1_Ch1_IRQn,
+     ^~~~~~~~~~~~~
+dma.c:187:5: error: 'DMA1_Ch2_3_DMA2_Ch1_2_IRQn' undeclared here (not in a function)
+     DMA1_Ch2_3_DMA2_Ch1_2_IRQn,
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+dma.c:189:5: error: 'DMA1_Ch4_7_DMA2_Ch3_5_IRQn' undeclared here (not in a function)
+     DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
 dma.c: In function 'dma_enable_clock':
-dma.c:546:18: error: 'NSTREAMS_PER_CONTROLLER' undeclared (first use in this function)
-     if (dma_id < NSTREAMS_PER_CONTROLLER) {
-                  ^~~~~~~~~~~~~~~~~~~~~~~
-dma.c:547:33: error: 'DMA1_ENABLE_MASK' undeclared (first use in this function)
-         if (((old_enable_mask & DMA1_ENABLE_MASK) == 0) && !DMA1_IS_CLK_ENABLED()) {
-                                 ^~~~~~~~~~~~~~~~
 dma.c:451:38: error: 'RCC_TypeDef {aka struct <anonymous>}' has no member named 'AHB1ENR'; did you mean 'AHBENR'?
  #define DMA1_IS_CLK_ENABLED()   ((RCC->AHB1ENR & RCC_AHB1ENR_DMA1EN) != 0)
                                       ^
@@ -25,9 +38,12 @@ dma.c:451:50: error: 'RCC_AHB1ENR_DMA1EN' undeclared (first use in this function
 dma.c:547:61: note: in expansion of macro 'DMA1_IS_CLK_ENABLED'
          if (((old_enable_mask & DMA1_ENABLE_MASK) == 0) && !DMA1_IS_CLK_ENABLED()) {
                                                              ^~~~~~~~~~~~~~~~~~~
-dma.c:558:33: error: 'DMA2_ENABLE_MASK' undeclared (first use in this function)
-         if (((old_enable_mask & DMA2_ENABLE_MASK) == 0) && !DMA2_IS_CLK_ENABLED()) {
-                                 ^~~~~~~~~~~~~~~~
+dma.c:451:50: note: each undeclared identifier is reported only once for each function it appears in
+ #define DMA1_IS_CLK_ENABLED()   ((RCC->AHB1ENR & RCC_AHB1ENR_DMA1EN) != 0)
+                                                  ^
+dma.c:547:61: note: in expansion of macro 'DMA1_IS_CLK_ENABLED'
+         if (((old_enable_mask & DMA1_ENABLE_MASK) == 0) && !DMA1_IS_CLK_ENABLED()) {
+                                                             ^~~~~~~~~~~~~~~~~~~
 dma.c:452:38: error: 'RCC_TypeDef {aka struct <anonymous>}' has no member named 'AHB1ENR'; did you mean 'AHBENR'?
  #define DMA2_IS_CLK_ENABLED()   ((RCC->AHB1ENR & RCC_AHB1ENR_DMA2EN) != 0)
                                       ^
@@ -44,44 +60,4 @@ dma.c: In function 'dma_init_handle':
 dma.c:588:14: error: 'DMA_InitTypeDef {aka struct <anonymous>}' has no member named 'Channel'
      dma->Init.Channel = dma_descr->sub_instance;
               ^
-dma.c: In function 'dma_init':
-dma.c:621:28: error: implicit declaration of function 'DMA_SUB_INSTANCE_AS_UINT8' [-Werror=implicit-function-declaration]
-         uint8_t sub_inst = DMA_SUB_INSTANCE_AS_UINT8(dma_descr->sub_instance) | (dir == DMA_PERIPH_TO_MEMORY) << 7;
-                            ^~~~~~~~~~~~~~~~~~~~~~~~~
-In file included from dma.c:33:0:
-dma.c:629:42: error: 'dma_irqn' undeclared (first use in this function)
-             NVIC_SetPriority(IRQn_NONNEG(dma_irqn[dma_id]), IRQ_PRI_DMA);
-                                          ^
-irq.h:31:28: note: in definition of macro 'IRQn_NONNEG'
- #define IRQn_NONNEG(pri) ((pri) & 0x7f)
-                            ^~~
-dma.c: In function 'dma_deinit':
-dma.c:664:29: error: 'dma_irqn' undeclared (first use in this function)
-         HAL_NVIC_DisableIRQ(dma_irqn[dma_descr->id]);
-                             ^~~~~~~~
-dma.c: In function 'dma_invalidate_channel':
-dma.c:674:18: error: variable 'dma_id' set but not used [-Werror=unused-but-set-variable]
-         dma_id_t dma_id = dma_descr->id;
-                  ^~~~~~
-dma.c: In function 'dma_idle_handler':
-dma.c:686:9: error: 'DMA1_ENABLE_MASK' undeclared (first use in this function)
-         DMA1_ENABLE_MASK, DMA2_ENABLE_MASK
-         ^~~~~~~~~~~~~~~~
-dma.c:686:27: error: 'DMA2_ENABLE_MASK' undeclared (first use in this function)
-         DMA1_ENABLE_MASK, DMA2_ENABLE_MASK
-                           ^~~~~~~~~~~~~~~~
-At top level:
-dma.c:441:16: error: 'dma_last_sub_instance' defined but not used [-Werror=unused-variable]
- static uint8_t dma_last_sub_instance[NSTREAM];
-                ^~~~~~~~~~~~~~~~~~~~~
-dma.c:440:27: error: 'dma_handle' defined but not used [-Werror=unused-variable]
- static DMA_HandleTypeDef *dma_handle[NSTREAM] = {NULL};
-                           ^~~~~~~~~~
-dma.c:121:30: error: 'dma_init_struct_dac' defined but not used [-Werror=unused-const-variable=]
- static const DMA_InitTypeDef dma_init_struct_dac = {
-                              ^~~~~~~~~~~~~~~~~~~
-dma.c:70:30: error: 'dma_init_struct_spi_i2c' defined but not used [-Werror=unused-const-variable=]
- static const DMA_InitTypeDef dma_init_struct_spi_i2c = {
-                              ^~~~~~~~~~~~~~~~~~~~~~~
-cc1: all warnings being treated as errors
 make: *** [build-STM32F3DISC/dma.o] Error 1
