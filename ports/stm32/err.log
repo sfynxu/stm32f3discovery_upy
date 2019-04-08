@@ -1,13 +1,22 @@
-dma.c: In function 'dma_init_handle':
-dma.c:616:14: error: 'DMA_InitTypeDef {aka struct <anonymous>}' has no member named 'Channel'
-     dma->Init.Channel = dma_descr->sub_instance;
-              ^
-At top level:
-dma.c:121:30: error: 'dma_init_struct_dac' defined but not used [-Werror=unused-const-variable=]
- static const DMA_InitTypeDef dma_init_struct_dac = {
-                              ^~~~~~~~~~~~~~~~~~~
-dma.c:70:30: error: 'dma_init_struct_spi_i2c' defined but not used [-Werror=unused-const-variable=]
- static const DMA_InitTypeDef dma_init_struct_spi_i2c = {
-                              ^~~~~~~~~~~~~~~~~~~~~~~
-cc1: all warnings being treated as errors
+dma.c:455:55: error: 'HAL_REMAPDMA_SPI1_RX_DMA1_CH4' undeclared here (not in a function)
+     const dma_descr_t dma_SPI_1_RX = { DMA1_Channel4, HAL_REMAPDMA_SPI1_RX_DMA1_CH4, dma_id_4, &dma_init_struct_spi_i2c};
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dma.c:456:55: error: 'HAL_REMAPDMA_SPI1_TX_DMA1_CH5' undeclared here (not in a function)
+     const dma_descr_t dma_SPI_1_TX = { DMA1_Channel5, HAL_REMAPDMA_SPI1_TX_DMA1_CH5, dma_id_5, &dma_init_struct_spi_i2c};
+                                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+dma.c:458:55: error: 'HAL_DMA2_CH1_SPI3_RX' undeclared here (not in a function)
+     const dma_descr_t dma_SPI_3_RX = { DMA2_Channel1, HAL_DMA2_CH1_SPI3_RX, dma_id_9, &dma_init_struct_spi_i2c};
+                                                       ^~~~~~~~~~~~~~~~~~~~
+dma.c:459:55: error: 'HAL_DMA2_CH2_SPI3_TX' undeclared here (not in a function)
+     const dma_descr_t dma_SPI_3_TX = { DMA2_Channel2, HAL_DMA2_CH2_SPI3_TX, dma_id_10, &dma_init_struct_spi_i2c};
+                                                       ^~~~~~~~~~~~~~~~~~~~
+dma.c:462:9: error: 'DMA1_Ch1_IRQn' undeclared here (not in a function)
+         DMA1_Ch1_IRQn,
+         ^~~~~~~~~~~~~
+dma.c:463:9: error: 'DMA1_Ch2_3_DMA2_Ch1_2_IRQn' undeclared here (not in a function)
+         DMA1_Ch2_3_DMA2_Ch1_2_IRQn,
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~
+dma.c:465:9: error: 'DMA1_Ch4_7_DMA2_Ch3_5_IRQn' undeclared here (not in a function)
+         DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
+         ^~~~~~~~~~~~~~~~~~~~~~~~~~
 make: *** [build-STM32F3DISC/dma.o] Error 1
