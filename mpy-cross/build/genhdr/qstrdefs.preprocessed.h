@@ -22,15 +22,13 @@ typedef long mp_off_t;
 # 1 "/usr/include/alloca.h" 1 3 4
 # 21 "/usr/include/alloca.h" 3 4
 # 1 "/usr/include/features.h" 1 3 4
-# 424 "/usr/include/features.h" 3 4
+# 364 "/usr/include/features.h" 3 4
 # 1 "/usr/include/i386-linux-gnu/sys/cdefs.h" 1 3 4
-# 427 "/usr/include/i386-linux-gnu/sys/cdefs.h" 3 4
+# 415 "/usr/include/i386-linux-gnu/sys/cdefs.h" 3 4
 # 1 "/usr/include/i386-linux-gnu/bits/wordsize.h" 1 3 4
-# 428 "/usr/include/i386-linux-gnu/sys/cdefs.h" 2 3 4
-# 1 "/usr/include/i386-linux-gnu/bits/long-double.h" 1 3 4
-# 429 "/usr/include/i386-linux-gnu/sys/cdefs.h" 2 3 4
-# 425 "/usr/include/features.h" 2 3 4
-# 448 "/usr/include/features.h" 3 4
+# 416 "/usr/include/i386-linux-gnu/sys/cdefs.h" 2 3 4
+# 365 "/usr/include/features.h" 2 3 4
+# 388 "/usr/include/features.h" 3 4
 # 1 "/usr/include/i386-linux-gnu/gnu/stubs.h" 1 3 4
 
 
@@ -40,14 +38,14 @@ typedef long mp_off_t;
 
 # 1 "/usr/include/i386-linux-gnu/gnu/stubs-32.h" 1 3 4
 # 8 "/usr/include/i386-linux-gnu/gnu/stubs.h" 2 3 4
-# 449 "/usr/include/features.h" 2 3 4
+# 389 "/usr/include/features.h" 2 3 4
 # 22 "/usr/include/alloca.h" 2 3 4
 
 
-# 1 "/usr/lib/gcc/i686-linux-gnu/7/include/stddef.h" 1 3 4
-# 216 "/usr/lib/gcc/i686-linux-gnu/7/include/stddef.h" 3 4
+# 1 "/usr/lib/gcc/i686-linux-gnu/6/include/stddef.h" 1 3 4
+# 216 "/usr/lib/gcc/i686-linux-gnu/6/include/stddef.h" 3 4
 
-# 216 "/usr/lib/gcc/i686-linux-gnu/7/include/stddef.h" 3 4
+# 216 "/usr/lib/gcc/i686-linux-gnu/6/include/stddef.h" 3 4
 typedef unsigned int size_t;
 # 25 "/usr/include/alloca.h" 2 3 4
 
@@ -67,154 +65,39 @@ extern void *alloca (size_t __size) __attribute__ ((__nothrow__ , __leaf__));
 # 124 "./mpconfigport.h" 2
 
 
-# 1 "/usr/lib/gcc/i686-linux-gnu/7/include/stdint.h" 1 3 4
-# 9 "/usr/lib/gcc/i686-linux-gnu/7/include/stdint.h" 3 4
+# 1 "/usr/lib/gcc/i686-linux-gnu/6/include/stdint.h" 1 3 4
+# 9 "/usr/lib/gcc/i686-linux-gnu/6/include/stdint.h" 3 4
 # 1 "/usr/include/stdint.h" 1 3 4
 # 26 "/usr/include/stdint.h" 3 4
-# 1 "/usr/include/i386-linux-gnu/bits/libc-header-start.h" 1 3 4
-# 27 "/usr/include/stdint.h" 2 3 4
-# 1 "/usr/include/i386-linux-gnu/bits/types.h" 1 3 4
-# 27 "/usr/include/i386-linux-gnu/bits/types.h" 3 4
-# 1 "/usr/include/i386-linux-gnu/bits/wordsize.h" 1 3 4
-# 28 "/usr/include/i386-linux-gnu/bits/types.h" 2 3 4
-
-
-typedef unsigned char __u_char;
-typedef unsigned short int __u_short;
-typedef unsigned int __u_int;
-typedef unsigned long int __u_long;
-
-
-typedef signed char __int8_t;
-typedef unsigned char __uint8_t;
-typedef signed short int __int16_t;
-typedef unsigned short int __uint16_t;
-typedef signed int __int32_t;
-typedef unsigned int __uint32_t;
-
-
-
-
-__extension__ typedef signed long long int __int64_t;
-__extension__ typedef unsigned long long int __uint64_t;
-
-
-
-
-
-
-
-__extension__ typedef long long int __quad_t;
-__extension__ typedef unsigned long long int __u_quad_t;
-
-
-
-
-
-
-
-__extension__ typedef long long int __intmax_t;
-__extension__ typedef unsigned long long int __uintmax_t;
-# 130 "/usr/include/i386-linux-gnu/bits/types.h" 3 4
-# 1 "/usr/include/i386-linux-gnu/bits/typesizes.h" 1 3 4
-# 131 "/usr/include/i386-linux-gnu/bits/types.h" 2 3 4
-
-
-__extension__ typedef __u_quad_t __dev_t;
-__extension__ typedef unsigned int __uid_t;
-__extension__ typedef unsigned int __gid_t;
-__extension__ typedef unsigned long int __ino_t;
-__extension__ typedef __u_quad_t __ino64_t;
-__extension__ typedef unsigned int __mode_t;
-__extension__ typedef unsigned int __nlink_t;
-__extension__ typedef long int __off_t;
-__extension__ typedef __quad_t __off64_t;
-__extension__ typedef int __pid_t;
-__extension__ typedef struct { int __val[2]; } __fsid_t;
-__extension__ typedef long int __clock_t;
-__extension__ typedef unsigned long int __rlim_t;
-__extension__ typedef __u_quad_t __rlim64_t;
-__extension__ typedef unsigned int __id_t;
-__extension__ typedef long int __time_t;
-__extension__ typedef unsigned int __useconds_t;
-__extension__ typedef long int __suseconds_t;
-
-__extension__ typedef int __daddr_t;
-__extension__ typedef int __key_t;
-
-
-__extension__ typedef int __clockid_t;
-
-
-__extension__ typedef void * __timer_t;
-
-
-__extension__ typedef long int __blksize_t;
-
-
-
-
-__extension__ typedef long int __blkcnt_t;
-__extension__ typedef __quad_t __blkcnt64_t;
-
-
-__extension__ typedef unsigned long int __fsblkcnt_t;
-__extension__ typedef __u_quad_t __fsblkcnt64_t;
-
-
-__extension__ typedef unsigned long int __fsfilcnt_t;
-__extension__ typedef __u_quad_t __fsfilcnt64_t;
-
-
-__extension__ typedef int __fsword_t;
-
-__extension__ typedef int __ssize_t;
-
-
-__extension__ typedef long int __syscall_slong_t;
-
-__extension__ typedef unsigned long int __syscall_ulong_t;
-
-
-
-typedef __off64_t __loff_t;
-typedef char *__caddr_t;
-
-
-__extension__ typedef int __intptr_t;
-
-
-__extension__ typedef unsigned int __socklen_t;
-
-
-
-
-typedef int __sig_atomic_t;
-# 28 "/usr/include/stdint.h" 2 3 4
 # 1 "/usr/include/i386-linux-gnu/bits/wchar.h" 1 3 4
-# 29 "/usr/include/stdint.h" 2 3 4
+# 27 "/usr/include/stdint.h" 2 3 4
 # 1 "/usr/include/i386-linux-gnu/bits/wordsize.h" 1 3 4
-# 30 "/usr/include/stdint.h" 2 3 4
+# 28 "/usr/include/stdint.h" 2 3 4
+# 36 "/usr/include/stdint.h" 3 4
+typedef signed char int8_t;
+typedef short int int16_t;
+typedef int int32_t;
+
+
+
+__extension__
+typedef long long int int64_t;
 
 
 
 
-# 1 "/usr/include/i386-linux-gnu/bits/stdint-intn.h" 1 3 4
-# 24 "/usr/include/i386-linux-gnu/bits/stdint-intn.h" 3 4
-typedef __int8_t int8_t;
-typedef __int16_t int16_t;
-typedef __int32_t int32_t;
-typedef __int64_t int64_t;
-# 35 "/usr/include/stdint.h" 2 3 4
+typedef unsigned char uint8_t;
+typedef unsigned short int uint16_t;
+
+typedef unsigned int uint32_t;
 
 
-# 1 "/usr/include/i386-linux-gnu/bits/stdint-uintn.h" 1 3 4
-# 24 "/usr/include/i386-linux-gnu/bits/stdint-uintn.h" 3 4
-typedef __uint8_t uint8_t;
-typedef __uint16_t uint16_t;
-typedef __uint32_t uint32_t;
-typedef __uint64_t uint64_t;
-# 38 "/usr/include/stdint.h" 2 3 4
+
+
+
+__extension__
+typedef unsigned long long int uint64_t;
+
 
 
 
@@ -268,18 +151,17 @@ typedef unsigned int uint_fast16_t;
 typedef unsigned int uint_fast32_t;
 __extension__
 typedef unsigned long long int uint_fast64_t;
-# 103 "/usr/include/stdint.h" 3 4
+# 125 "/usr/include/stdint.h" 3 4
 typedef int intptr_t;
 
 
 typedef unsigned int uintptr_t;
-
-
-
-
-typedef __intmax_t intmax_t;
-typedef __uintmax_t uintmax_t;
-# 10 "/usr/lib/gcc/i686-linux-gnu/7/include/stdint.h" 2 3 4
+# 137 "/usr/include/stdint.h" 3 4
+__extension__
+typedef long long int intmax_t;
+__extension__
+typedef unsigned long long int uintmax_t;
+# 10 "/usr/lib/gcc/i686-linux-gnu/6/include/stdint.h" 2 3 4
 # 126 "./mpconfigport.h" 2
 # 63 "../py/mpconfig.h" 2
 # 624 "../py/mpconfig.h"

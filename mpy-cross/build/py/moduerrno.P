@@ -2,24 +2,13 @@ build/py/moduerrno.o: ../py/moduerrno.c /usr/include/stdc-predef.h \
  /usr/include/assert.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
- /usr/include/i386-linux-gnu/bits/long-double.h \
  /usr/include/i386-linux-gnu/gnu/stubs.h \
  /usr/include/i386-linux-gnu/gnu/stubs-32.h /usr/include/string.h \
- /usr/include/i386-linux-gnu/bits/libc-header-start.h \
- /usr/lib/gcc/i686-linux-gnu/7/include/stddef.h \
- /usr/include/i386-linux-gnu/bits/types/locale_t.h \
- /usr/include/i386-linux-gnu/bits/types/__locale_t.h \
- /usr/include/strings.h \
- /usr/include/i386-linux-gnu/bits/strings_fortified.h \
- /usr/include/i386-linux-gnu/bits/string_fortified.h ../py/obj.h \
- ../py/mpconfig.h mpconfigport.h /usr/include/alloca.h \
- /usr/lib/gcc/i686-linux-gnu/7/include/stdint.h /usr/include/stdint.h \
- /usr/include/i386-linux-gnu/bits/types.h \
- /usr/include/i386-linux-gnu/bits/typesizes.h \
- /usr/include/i386-linux-gnu/bits/wchar.h \
- /usr/include/i386-linux-gnu/bits/stdint-intn.h \
- /usr/include/i386-linux-gnu/bits/stdint-uintn.h ../py/misc.h \
- /usr/lib/gcc/i686-linux-gnu/7/include/stdbool.h ../py/qstr.h \
+ /usr/lib/gcc/i686-linux-gnu/6/include/stddef.h /usr/include/xlocale.h \
+ ../py/obj.h ../py/mpconfig.h mpconfigport.h /usr/include/alloca.h \
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdint.h /usr/include/stdint.h \
+ /usr/include/i386-linux-gnu/bits/wchar.h ../py/misc.h \
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdbool.h ../py/qstr.h \
  build/genhdr/qstrdefs.generated.h ../py/mpprint.h ../py/runtime0.h \
  ../py/mperrno.h /usr/include/errno.h \
  /usr/include/i386-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
@@ -29,24 +18,13 @@ build/py/moduerrno.o: ../py/moduerrno.c /usr/include/stdc-predef.h \
  /usr/include/assert.h /usr/include/features.h :
  /usr/include/i386-linux-gnu/sys/cdefs.h :
  /usr/include/i386-linux-gnu/bits/wordsize.h :
- /usr/include/i386-linux-gnu/bits/long-double.h :
  /usr/include/i386-linux-gnu/gnu/stubs.h :
  /usr/include/i386-linux-gnu/gnu/stubs-32.h /usr/include/string.h :
- /usr/include/i386-linux-gnu/bits/libc-header-start.h :
- /usr/lib/gcc/i686-linux-gnu/7/include/stddef.h :
- /usr/include/i386-linux-gnu/bits/types/locale_t.h :
- /usr/include/i386-linux-gnu/bits/types/__locale_t.h :
- /usr/include/strings.h :
- /usr/include/i386-linux-gnu/bits/strings_fortified.h :
- /usr/include/i386-linux-gnu/bits/string_fortified.h ../py/obj.h :
- ../py/mpconfig.h mpconfigport.h /usr/include/alloca.h :
- /usr/lib/gcc/i686-linux-gnu/7/include/stdint.h /usr/include/stdint.h :
- /usr/include/i386-linux-gnu/bits/types.h :
- /usr/include/i386-linux-gnu/bits/typesizes.h :
- /usr/include/i386-linux-gnu/bits/wchar.h :
- /usr/include/i386-linux-gnu/bits/stdint-intn.h :
- /usr/include/i386-linux-gnu/bits/stdint-uintn.h ../py/misc.h :
- /usr/lib/gcc/i686-linux-gnu/7/include/stdbool.h ../py/qstr.h :
+ /usr/lib/gcc/i686-linux-gnu/6/include/stddef.h /usr/include/xlocale.h :
+ ../py/obj.h ../py/mpconfig.h mpconfigport.h /usr/include/alloca.h :
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdint.h /usr/include/stdint.h :
+ /usr/include/i386-linux-gnu/bits/wchar.h ../py/misc.h :
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdbool.h ../py/qstr.h :
  build/genhdr/qstrdefs.generated.h ../py/mpprint.h ../py/runtime0.h :
  ../py/mperrno.h /usr/include/errno.h :
  /usr/include/i386-linux-gnu/bits/errno.h /usr/include/linux/errno.h :

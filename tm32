@@ -1,0 +1,77 @@
+ports/stm32/old_pyb_i2c.c:#define PYB_I2C_SPEED_STANDARD (100000L)
+ports/stm32/old_pyb_i2c.c:#define PYB_I2C_SPEED_FULL     (400000L)
+ports/stm32/old_pyb_i2c.c:#define PYB_I2C_SPEED_FAST     (1000000L)
+ports/stm32/old_pyb_i2c.c:        {PYB_I2C_SPEED_STANDARD, 0x40912732}, \
+ports/stm32/old_pyb_i2c.c:        {PYB_I2C_SPEED_FULL, 0x10911823}, \
+ports/stm32/old_pyb_i2c.c:        {PYB_I2C_SPEED_FAST, 0x00611116}, \
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
+ports/stm32/old_pyb_i2c.c:        {PYB_I2C_SPEED_STANDARD, 0xb0420f13}, \
+ports/stm32/old_pyb_i2c.c:        {PYB_I2C_SPEED_FULL, 0x70330309}, \
+ports/stm32/old_pyb_i2c.c:        {PYB_I2C_SPEED_FAST, 0x50100103}, \
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
+ports/stm32/old_pyb_i2c.c:        {PYB_I2C_SPEED_STANDARD, 0x40604E73}, \
+ports/stm32/old_pyb_i2c.c:        {PYB_I2C_SPEED_FULL, 0x00901954}, \
+ports/stm32/old_pyb_i2c.c:        {PYB_I2C_SPEED_FAST, 0x10810915}, \
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_TIMING {{PYB_I2C_SPEED_STANDARD, 0x90112626}}
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_STANDARD)
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_STANDARD)
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+ports/stm32/old_pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FULL)
+ports/stm32/pyb_i2c.c:#define PYB_I2C_SPEED_STANDARD (100000L)
+ports/stm32/pyb_i2c.c:#define PYB_I2C_SPEED_FULL     (400000L)
+ports/stm32/pyb_i2c.c:#define PYB_I2C_SPEED_FAST     (1000000L)
+ports/stm32/pyb_i2c.c:        	{PYB_I2C_SPEED_STANDARD, 0x40912732}, \
+ports/stm32/pyb_i2c.c:	        {PYB_I2C_SPEED_FULL, 0x10911823}, \
+ports/stm32/pyb_i2c.c:        	{PYB_I2C_SPEED_FAST, 0x00611116}, \
+ports/stm32/pyb_i2c.c:	#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+ports/stm32/pyb_i2c.c:	#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
+ports/stm32/pyb_i2c.c:        	{PYB_I2C_SPEED_STANDARD, 0xb0420f13}, \
+ports/stm32/pyb_i2c.c:	        {PYB_I2C_SPEED_FULL, 0x70330309}, \
+ports/stm32/pyb_i2c.c:        	{PYB_I2C_SPEED_FAST, 0x50100103}, \
+ports/stm32/pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+ports/stm32/pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
+ports/stm32/pyb_i2c.c:        {PYB_I2C_SPEED_STANDARD, 0x40604E73}, \
+ports/stm32/pyb_i2c.c:        {PYB_I2C_SPEED_FULL, 0x00901954}, \
+ports/stm32/pyb_i2c.c:        {PYB_I2C_SPEED_FAST, 0x10810915}, \
+ports/stm32/pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+ports/stm32/pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
+ports/stm32/pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_TIMING {{PYB_I2C_SPEED_STANDARD, 0x90112626}}
+ports/stm32/pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_STANDARD)
+ports/stm32/pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_STANDARD)
+ports/stm32/pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+ports/stm32/pyb_i2c.c:#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FULL)
+lib/stm32lib/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c:  hi2c->Instance->CCR = I2C_SPEED(pclk1, hi2c->Init.ClockSpeed, hi2c->Init.DutyCycle);
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_i2c.h:#define __LL_I2C_SPEED_TO_CCR(__PCLK__, __SPEED__, __DUTYCYCLE__)       (uint32_t)(((__SPEED__) <= LL_I2C_MAX_SPEED_STANDARD)? \
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_i2c.h:                                                                                  (__LL_I2C_SPEED_STANDARD_TO_CCR((__PCLK__), (__SPEED__))) : \
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_i2c.h:                                                                                  (__LL_I2C_SPEED_FAST_TO_CCR((__PCLK__), (__SPEED__), (__DUTYCYCLE__))))
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_i2c.h:#define __LL_I2C_SPEED_STANDARD_TO_CCR(__PCLK__, __SPEED__)             (uint32_t)(((((__PCLK__)/((__SPEED__) << 1U)) & I2C_CCR_CCR) < 4U)? 4U:((__PCLK__) / ((__SPEED__) << 1U)))
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_i2c.h:#define __LL_I2C_SPEED_FAST_TO_CCR(__PCLK__, __SPEED__, __DUTYCYCLE__)  (uint32_t)(((__DUTYCYCLE__) == LL_I2C_DUTYCYCLE_2)? \
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_i2c.h:                  __LL_I2C_SPEED_FAST_TO_CCR(PeriphClock, ClockSpeed, DutyCycle)        | \
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_i2c.h:                  __LL_I2C_SPEED_STANDARD_TO_CCR(PeriphClock, ClockSpeed);
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_STANDARD        I2C_SPEED_STANDARD
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_FAST            I2C_SPEED_FAST
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED                 I2C_SPEED
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:#define I2C_SPEED_STANDARD(__PCLK__, __SPEED__)            (((((__PCLK__)/((__SPEED__) << 1U)) & I2C_CCR_CCR) < 4U)? 4U:((__PCLK__) / ((__SPEED__) << 1U)))
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:#define I2C_SPEED_FAST(__PCLK__, __SPEED__, __DUTYCYCLE__) (((__DUTYCYCLE__) == I2C_DUTYCYCLE_2)? ((__PCLK__) / ((__SPEED__) * 3U)) : (((__PCLK__) / ((__SPEED__) * 25U)) | I2C_DUTYCYCLE_16_9))
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:#define I2C_SPEED(__PCLK__, __SPEED__, __DUTYCYCLE__)      (((__SPEED__) <= 100000U)? (I2C_SPEED_STANDARD((__PCLK__), (__SPEED__))) : \
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:                                                                  ((I2C_SPEED_FAST((__PCLK__), (__SPEED__), (__DUTYCYCLE__)) & I2C_CCR_CCR) == 0U)? 1U : \
+lib/stm32lib/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:                                                                  ((I2C_SPEED_FAST((__PCLK__), (__SPEED__), (__DUTYCYCLE__))) | I2C_CCR_FS))
+lib/stm32lib/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_STANDARD        I2C_SPEED_STANDARD
+lib/stm32lib/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_FAST            I2C_SPEED_FAST
+lib/stm32lib/STM32H7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED                 I2C_SPEED
+lib/stm32lib/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_STANDARD        I2C_SPEED_STANDARD
+lib/stm32lib/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_FAST            I2C_SPEED_FAST
+lib/stm32lib/STM32L4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED                 I2C_SPEED
+lib/stm32lib/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_STANDARD        I2C_SPEED_STANDARD
+lib/stm32lib/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_FAST            I2C_SPEED_FAST
+lib/stm32lib/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED                 I2C_SPEED
+lib/stm32lib/STM32F3xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_STANDARD        I2C_SPEED_STANDARD
+lib/stm32lib/STM32F3xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_FAST            I2C_SPEED_FAST
+lib/stm32lib/STM32F3xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED                 I2C_SPEED
+lib/stm32lib/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_STANDARD        I2C_SPEED_STANDARD
+lib/stm32lib/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED_FAST            I2C_SPEED_FAST
+lib/stm32lib/STM32F0xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:#define __HAL_I2C_SPEED                 I2C_SPEED

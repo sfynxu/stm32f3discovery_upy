@@ -1,32 +1,23 @@
 build/py/reader.o: ../py/reader.c /usr/include/stdc-predef.h \
- /usr/include/stdio.h \
- /usr/include/i386-linux-gnu/bits/libc-header-start.h \
- /usr/include/features.h /usr/include/i386-linux-gnu/sys/cdefs.h \
+ /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/i386-linux-gnu/sys/cdefs.h \
  /usr/include/i386-linux-gnu/bits/wordsize.h \
- /usr/include/i386-linux-gnu/bits/long-double.h \
  /usr/include/i386-linux-gnu/gnu/stubs.h \
  /usr/include/i386-linux-gnu/gnu/stubs-32.h \
- /usr/lib/gcc/i686-linux-gnu/7/include/stddef.h \
+ /usr/lib/gcc/i686-linux-gnu/6/include/stddef.h \
  /usr/include/i386-linux-gnu/bits/types.h \
- /usr/include/i386-linux-gnu/bits/typesizes.h \
- /usr/include/i386-linux-gnu/bits/types/__FILE.h \
- /usr/include/i386-linux-gnu/bits/types/FILE.h \
- /usr/include/i386-linux-gnu/bits/libio.h \
- /usr/include/i386-linux-gnu/bits/_G_config.h \
- /usr/include/i386-linux-gnu/bits/types/__mbstate_t.h \
- /usr/lib/gcc/i686-linux-gnu/7/include/stdarg.h \
+ /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdarg.h \
  /usr/include/i386-linux-gnu/bits/stdio_lim.h \
- /usr/include/i386-linux-gnu/bits/sys_errlist.h \
- /usr/include/i386-linux-gnu/bits/stdio2.h /usr/include/assert.h \
+ /usr/include/i386-linux-gnu/bits/sys_errlist.h /usr/include/assert.h \
  ../py/runtime.h ../py/mpstate.h \
- /usr/lib/gcc/i686-linux-gnu/7/include/stdint.h /usr/include/stdint.h \
- /usr/include/i386-linux-gnu/bits/wchar.h \
- /usr/include/i386-linux-gnu/bits/stdint-intn.h \
- /usr/include/i386-linux-gnu/bits/stdint-uintn.h ../py/mpconfig.h \
- mpconfigport.h /usr/include/alloca.h ../py/mpthread.h ../py/misc.h \
- /usr/lib/gcc/i686-linux-gnu/7/include/stdbool.h ../py/nlr.h \
- /usr/lib/gcc/i686-linux-gnu/7/include-fixed/limits.h \
- /usr/lib/gcc/i686-linux-gnu/7/include-fixed/syslimits.h \
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdint.h /usr/include/stdint.h \
+ /usr/include/i386-linux-gnu/bits/wchar.h ../py/mpconfig.h mpconfigport.h \
+ /usr/include/alloca.h ../py/mpthread.h ../py/misc.h \
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdbool.h ../py/nlr.h \
+ /usr/lib/gcc/i686-linux-gnu/6/include-fixed/limits.h \
+ /usr/lib/gcc/i686-linux-gnu/6/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h \
  /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/i386-linux-gnu/bits/posix2_lim.h ../py/obj.h ../py/qstr.h \
@@ -36,48 +27,33 @@ build/py/reader.o: ../py/reader.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/i386-linux-gnu/asm/errno.h /usr/include/asm-generic/errno.h \
  /usr/include/asm-generic/errno-base.h ../py/reader.h \
- /usr/include/i386-linux-gnu/sys/stat.h \
- /usr/include/i386-linux-gnu/bits/types/struct_timespec.h \
- /usr/include/i386-linux-gnu/bits/types/time_t.h \
+ /usr/include/i386-linux-gnu/sys/stat.h /usr/include/time.h \
  /usr/include/i386-linux-gnu/bits/stat.h /usr/include/fcntl.h \
  /usr/include/i386-linux-gnu/bits/fcntl.h \
- /usr/include/i386-linux-gnu/bits/fcntl-linux.h \
- /usr/include/i386-linux-gnu/bits/fcntl2.h /usr/include/unistd.h \
+ /usr/include/i386-linux-gnu/bits/fcntl-linux.h /usr/include/unistd.h \
  /usr/include/i386-linux-gnu/bits/posix_opt.h \
  /usr/include/i386-linux-gnu/bits/environments.h \
- /usr/include/i386-linux-gnu/bits/confname.h \
- /usr/include/i386-linux-gnu/bits/getopt_posix.h \
- /usr/include/i386-linux-gnu/bits/getopt_core.h \
- /usr/include/i386-linux-gnu/bits/unistd.h
+ /usr/include/i386-linux-gnu/bits/confname.h /usr/include/getopt.h
 ../py/reader.c /usr/include/stdc-predef.h :
- /usr/include/stdio.h :
- /usr/include/i386-linux-gnu/bits/libc-header-start.h :
- /usr/include/features.h /usr/include/i386-linux-gnu/sys/cdefs.h :
+ /usr/include/stdio.h /usr/include/features.h :
+ /usr/include/i386-linux-gnu/sys/cdefs.h :
  /usr/include/i386-linux-gnu/bits/wordsize.h :
- /usr/include/i386-linux-gnu/bits/long-double.h :
  /usr/include/i386-linux-gnu/gnu/stubs.h :
  /usr/include/i386-linux-gnu/gnu/stubs-32.h :
- /usr/lib/gcc/i686-linux-gnu/7/include/stddef.h :
+ /usr/lib/gcc/i686-linux-gnu/6/include/stddef.h :
  /usr/include/i386-linux-gnu/bits/types.h :
- /usr/include/i386-linux-gnu/bits/typesizes.h :
- /usr/include/i386-linux-gnu/bits/types/__FILE.h :
- /usr/include/i386-linux-gnu/bits/types/FILE.h :
- /usr/include/i386-linux-gnu/bits/libio.h :
- /usr/include/i386-linux-gnu/bits/_G_config.h :
- /usr/include/i386-linux-gnu/bits/types/__mbstate_t.h :
- /usr/lib/gcc/i686-linux-gnu/7/include/stdarg.h :
+ /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/libio.h :
+ /usr/include/_G_config.h /usr/include/wchar.h :
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdarg.h :
  /usr/include/i386-linux-gnu/bits/stdio_lim.h :
- /usr/include/i386-linux-gnu/bits/sys_errlist.h :
- /usr/include/i386-linux-gnu/bits/stdio2.h /usr/include/assert.h :
+ /usr/include/i386-linux-gnu/bits/sys_errlist.h /usr/include/assert.h :
  ../py/runtime.h ../py/mpstate.h :
- /usr/lib/gcc/i686-linux-gnu/7/include/stdint.h /usr/include/stdint.h :
- /usr/include/i386-linux-gnu/bits/wchar.h :
- /usr/include/i386-linux-gnu/bits/stdint-intn.h :
- /usr/include/i386-linux-gnu/bits/stdint-uintn.h ../py/mpconfig.h :
- mpconfigport.h /usr/include/alloca.h ../py/mpthread.h ../py/misc.h :
- /usr/lib/gcc/i686-linux-gnu/7/include/stdbool.h ../py/nlr.h :
- /usr/lib/gcc/i686-linux-gnu/7/include-fixed/limits.h :
- /usr/lib/gcc/i686-linux-gnu/7/include-fixed/syslimits.h :
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdint.h /usr/include/stdint.h :
+ /usr/include/i386-linux-gnu/bits/wchar.h ../py/mpconfig.h mpconfigport.h :
+ /usr/include/alloca.h ../py/mpthread.h ../py/misc.h :
+ /usr/lib/gcc/i686-linux-gnu/6/include/stdbool.h ../py/nlr.h :
+ /usr/lib/gcc/i686-linux-gnu/6/include-fixed/limits.h :
+ /usr/lib/gcc/i686-linux-gnu/6/include-fixed/syslimits.h :
  /usr/include/limits.h /usr/include/i386-linux-gnu/bits/posix1_lim.h :
  /usr/include/i386-linux-gnu/bits/local_lim.h /usr/include/linux/limits.h :
  /usr/include/i386-linux-gnu/bits/posix2_lim.h ../py/obj.h ../py/qstr.h :
@@ -87,16 +63,10 @@ build/py/reader.o: ../py/reader.c /usr/include/stdc-predef.h \
  /usr/include/i386-linux-gnu/bits/errno.h /usr/include/linux/errno.h :
  /usr/include/i386-linux-gnu/asm/errno.h /usr/include/asm-generic/errno.h :
  /usr/include/asm-generic/errno-base.h ../py/reader.h :
- /usr/include/i386-linux-gnu/sys/stat.h :
- /usr/include/i386-linux-gnu/bits/types/struct_timespec.h :
- /usr/include/i386-linux-gnu/bits/types/time_t.h :
+ /usr/include/i386-linux-gnu/sys/stat.h /usr/include/time.h :
  /usr/include/i386-linux-gnu/bits/stat.h /usr/include/fcntl.h :
  /usr/include/i386-linux-gnu/bits/fcntl.h :
- /usr/include/i386-linux-gnu/bits/fcntl-linux.h :
- /usr/include/i386-linux-gnu/bits/fcntl2.h /usr/include/unistd.h :
+ /usr/include/i386-linux-gnu/bits/fcntl-linux.h /usr/include/unistd.h :
  /usr/include/i386-linux-gnu/bits/posix_opt.h :
  /usr/include/i386-linux-gnu/bits/environments.h :
- /usr/include/i386-linux-gnu/bits/confname.h :
- /usr/include/i386-linux-gnu/bits/getopt_posix.h :
- /usr/include/i386-linux-gnu/bits/getopt_core.h :
- /usr/include/i386-linux-gnu/bits/unistd.h :
+ /usr/include/i386-linux-gnu/bits/confname.h /usr/include/getopt.h :
