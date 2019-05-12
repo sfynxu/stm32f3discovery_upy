@@ -199,6 +199,43 @@ static const uint8_t dma_irqn[NSTREAM] = {
     0,
     0,
 };
+#elif defined(STM32F3)
+#define NCONTROLLERS		(2)
+#define NSTREAMS_PER_CONTROLLER	(7)
+#define NSTREAM                 (NCONTROLLERS * NSTREAMS_PER_CONTROLLER)
+//#define DMA_SUB_INSTANCE_AS_UINT8(dma_channel) (((dma_channel) & DMA_SxCR_CHSEL) >> 25)
+#define DMA_SUB_INSTANCE_AS_UINT8(dma_channel) ((dma_channel) >> ((dma_channel >> 28) * 4))
+
+#define DMA1_ENABLE_MASK (0x007f) // Bits in dma_enable_mask corresponding to DMA1 (7 channels)
+#define DMA2_ENABLE_MASK (0x0f80) // Bits in dma_enable_mask corresponding to DMA2 (only 5 channels)
+
+// DMA1 streams
+#if MICROPY_HW_ENABLE_DAC
+const dma_descr_t dma_DAC_1_TX = { DMA1_Channel3, HAL_DMA1_CH3_DAC_CH1, dma_id_2, &dma_init_struct_dac };
+const dma_descr_t dma_DAC_2_TX = { DMA1_Channel4, HAL_DMA1_CH4_DAC_CH2, dma_id_3, &dma_init_struct_dac };
+#endif
+const dma_descr_t dma_SPI_2_TX = { DMA1_Channel5, HAL_DMA1_CH5_SPI2_TX, dma_id_4, &dma_init_struct_spi_i2c};
+const dma_descr_t dma_SPI_2_RX = { DMA1_Channel6, HAL_DMA1_CH6_SPI2_RX, dma_id_5, &dma_init_struct_spi_i2c};
+const dma_descr_t dma_SPI_1_RX = { DMA2_Channel3, HAL_DMA2_CH3_SPI1_RX, dma_id_9, &dma_init_struct_spi_i2c};
+const dma_descr_t dma_SPI_1_TX = { DMA2_Channel4, HAL_DMA2_CH4_SPI1_TX, dma_id_10, &dma_init_struct_spi_i2c};
+
+static const uint8_t dma_irqn[NSTREAM] = {
+    DMA1_Ch1_IRQn,
+    DMA1_Ch2_3_DMA2_Ch1_2_IRQn,
+    DMA1_Ch2_3_DMA2_Ch1_2_IRQn,
+    DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
+    DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
+    DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
+    DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
+
+    DMA1_Ch2_3_DMA2_Ch1_2_IRQn,
+    DMA1_Ch2_3_DMA2_Ch1_2_IRQn,
+    DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
+    DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
+    DMA1_Ch4_7_DMA2_Ch3_5_IRQn,
+    0,
+    0,
+};
 
 #elif defined(STM32F4) || defined(STM32F7)
 
