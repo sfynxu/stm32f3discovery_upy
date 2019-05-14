@@ -93,44 +93,44 @@
 #define PYB_I2C_SPEED_FAST     (1000000L)
 
 #if defined(MICROPY_HW_I2C1_SCL)
-I2C_HandleTypeDef I2CHandle1 = {.Instance = NULL};
+	I2C_HandleTypeDef I2CHandle1 = {.Instance = NULL};
 #endif
 #if defined(MICROPY_HW_I2C2_SCL)
-I2C_HandleTypeDef I2CHandle2 = {.Instance = NULL};
+	I2C_HandleTypeDef I2CHandle2 = {.Instance = NULL};
 #endif
 #if defined(MICROPY_HW_I2C3_SCL)
-I2C_HandleTypeDef I2CHandle3 = {.Instance = NULL};
+	I2C_HandleTypeDef I2CHandle3 = {.Instance = NULL};
 #endif
 #if defined(MICROPY_HW_I2C4_SCL)
-I2C_HandleTypeDef I2CHandle4 = {.Instance = NULL};
+	I2C_HandleTypeDef I2CHandle4 = {.Instance = NULL};
 #endif
 
 STATIC bool pyb_i2c_use_dma[4];
 
 const pyb_i2c_obj_t pyb_i2c_obj[] = {
     #if defined(MICROPY_HW_I2C1_SCL)
-    {{&pyb_i2c_type}, &I2CHandle1, &dma_I2C_1_TX, &dma_I2C_1_RX, &pyb_i2c_use_dma[0]},
+	    {{&pyb_i2c_type}, &I2CHandle1, &dma_I2C_1_TX, &dma_I2C_1_RX, &pyb_i2c_use_dma[0]},
     #else
-    {{&pyb_i2c_type}, NULL, NULL, NULL, NULL},
+	    {{&pyb_i2c_type}, NULL, NULL, NULL, NULL},
     #endif
     #if defined(MICROPY_HW_I2C2_SCL)
-    {{&pyb_i2c_type}, &I2CHandle2, &dma_I2C_2_TX, &dma_I2C_2_RX, &pyb_i2c_use_dma[1]},
+	    {{&pyb_i2c_type}, &I2CHandle2, &dma_I2C_2_TX, &dma_I2C_2_RX, &pyb_i2c_use_dma[1]},
     #else
-    {{&pyb_i2c_type}, NULL, NULL, NULL, NULL},
+	    {{&pyb_i2c_type}, NULL, NULL, NULL, NULL},
     #endif
     #if defined(MICROPY_HW_I2C3_SCL)
-    {{&pyb_i2c_type}, &I2CHandle3, &dma_I2C_3_TX, &dma_I2C_3_RX, &pyb_i2c_use_dma[2]},
+	    {{&pyb_i2c_type}, &I2CHandle3, &dma_I2C_3_TX, &dma_I2C_3_RX, &pyb_i2c_use_dma[2]},
     #else
-    {{&pyb_i2c_type}, NULL, NULL, NULL, NULL},
+	    {{&pyb_i2c_type}, NULL, NULL, NULL, NULL},
     #endif
     #if defined(MICROPY_HW_I2C4_SCL)
-    {{&pyb_i2c_type}, &I2CHandle4, &dma_I2C_4_TX, &dma_I2C_4_RX, &pyb_i2c_use_dma[3]},
+	    {{&pyb_i2c_type}, &I2CHandle4, &dma_I2C_4_TX, &dma_I2C_4_RX, &pyb_i2c_use_dma[3]},
     #else
-    {{&pyb_i2c_type}, NULL, NULL, NULL, NULL},
+	    {{&pyb_i2c_type}, NULL, NULL, NULL, NULL},
     #endif
 };
 
-#if defined(STM32F7) || defined(STM32L4) || defined(STM32H7)
+#if defined(STM32F7) || defined(STM32L4) || defined(STM32H7) || defined(STM32F3)
 
 // The STM32F0, F3, F7, H7 and L4 use a TIMINGR register rather than ClockSpeed and
 // DutyCycle.
@@ -139,108 +139,106 @@ const pyb_i2c_obj_t pyb_i2c_obj[] = {
 
 	// The value 0x40912732 was obtained from the DISCOVERY_I2Cx_TIMING constant
 	// defined in the STM32F7Cube file Drivers/BSP/STM32F746G-Discovery/stm32f7456g_discovery.h
-	#define MICROPY_HW_I2C_BAUDRATE_TIMING { \
-        	{PYB_I2C_SPEED_STANDARD, 0x40912732}, \
-	        {PYB_I2C_SPEED_FULL, 0x10911823}, \
-        	{PYB_I2C_SPEED_FAST, 0x00611116}, \
-    	}
-	#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
-	#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
+		#define MICROPY_HW_I2C_BAUDRATE_TIMING { \
+        		{PYB_I2C_SPEED_STANDARD, 0x40912732}, \
+		        {PYB_I2C_SPEED_FULL, 0x10911823}, \
+        		{PYB_I2C_SPEED_FAST, 0x00611116}, \
+	    	}
+		#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+		#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
 
 	#elif defined(STM32F722xx) || defined(STM32F723xx) \
 	    || defined(STM32F732xx) || defined(STM32F733xx) \
 	    || defined(STM32F765xx) || defined(STM32F767xx) \
 	    || defined(STM32F769xx)
 
-	// These timing values are for f_I2CCLK=54MHz and are only approximate
-	#define MICROPY_HW_I2C_BAUDRATE_TIMING { \
-        	{PYB_I2C_SPEED_STANDARD, 0xb0420f13}, \
-	        {PYB_I2C_SPEED_FULL, 0x70330309}, \
-        	{PYB_I2C_SPEED_FAST, 0x50100103}, \
-    	}
-#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
-#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
+		// These timing values are for f_I2CCLK=54MHz and are only approximate
+		#define MICROPY_HW_I2C_BAUDRATE_TIMING { \
+        		{PYB_I2C_SPEED_STANDARD, 0xb0420f13}, \
+		        {PYB_I2C_SPEED_FULL, 0x70330309}, \
+        		{PYB_I2C_SPEED_FAST, 0x50100103}, \
+	    	}
+		#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+		#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
 
-#elif defined(STM32H7)
+	#elif defined(STM32H7)
 
-// I2C TIMINGs obtained from the STHAL examples.
-#define MICROPY_HW_I2C_BAUDRATE_TIMING { \
-        {PYB_I2C_SPEED_STANDARD, 0x40604E73}, \
-        {PYB_I2C_SPEED_FULL, 0x00901954}, \
-        {PYB_I2C_SPEED_FAST, 0x10810915}, \
-    }
-#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
-#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
+		// I2C TIMINGs obtained from the STHAL examples.
+		#define MICROPY_HW_I2C_BAUDRATE_TIMING { \
+        		{PYB_I2C_SPEED_STANDARD, 0x40604E73}, \
+		        {PYB_I2C_SPEED_FULL, 0x00901954}, \
+	        	{PYB_I2C_SPEED_FAST, 0x10810915}, \
+	    	}
+		#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+		#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FAST)
 
-#elif defined(STM32L4)
+	#elif defined(STM32L4)
 
-// The value 0x90112626 was obtained from the DISCOVERY_I2C1_TIMING constant
-// defined in the STM32L4Cube file Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h
-#define MICROPY_HW_I2C_BAUDRATE_TIMING {{PYB_I2C_SPEED_STANDARD, 0x90112626}}
-#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_STANDARD)
-#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_STANDARD)
+		// The value 0x90112626 was obtained from the DISCOVERY_I2C1_TIMING constant
+		// defined in the STM32L4Cube file Drivers/BSP/STM32L476G-Discovery/stm32l476g_discovery.h
+		#define MICROPY_HW_I2C_BAUDRATE_TIMING {{PYB_I2C_SPEED_STANDARD, 0x90112626}}
+		#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_STANDARD)
+		#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_STANDARD)
 
-#elif defined(STM32F3)
-// The value 0x00201D2C was obtained from STM32CubeF3 example for DISCOVERY Board
-// STM32F3-DICOVERY\Examples\I2C\I2C_WakeUpFromStop
-#define MICROPY_HW_I2C_BAUDRATE_TIMING {{PYB_I2C_SPEED_STANDARD, 0x00201D2C}}
-#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_STANDARD)
-#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_STANDARD)
+	#elif defined(STM32F3)
+		// The value 0x00201D2C was obtained from STM32CubeF3 example for DISCOVERY Board
+		// STM32F3-DICOVERY\Examples\I2C\I2C_WakeUpFromStop
+		#define MICROPY_HW_I2C_BAUDRATE_TIMING {{PYB_I2C_SPEED_STANDARD, 0x00201D2C}}
+		#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_STANDARD)
+		#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_STANDARD)
 
-#elif defined(STM32F3)
-// The value 0x00201D2C was obtained from STM32CubeF3 example for DISCOVERY Board
-#else
-#error "no I2C timings for this MCU"
-#endif
+	#else
+		#error "no I2C timings for this MCU"
+	#endif
 
-STATIC const struct {
-    uint32_t    baudrate;
-    uint32_t    timing;
-} pyb_i2c_baudrate_timing[] = MICROPY_HW_I2C_BAUDRATE_TIMING;
+	STATIC const struct {
+	    uint32_t    baudrate;
+	    uint32_t    timing;
+	} pyb_i2c_baudrate_timing[] = MICROPY_HW_I2C_BAUDRATE_TIMING;
 
-#define NUM_BAUDRATE_TIMINGS MP_ARRAY_SIZE(pyb_i2c_baudrate_timing)
+	#define NUM_BAUDRATE_TIMINGS MP_ARRAY_SIZE(pyb_i2c_baudrate_timing)
 
-STATIC void i2c_set_baudrate(I2C_InitTypeDef *init, uint32_t baudrate) {
-    for (int i = 0; i < NUM_BAUDRATE_TIMINGS; i++) {
-        if (pyb_i2c_baudrate_timing[i].baudrate == baudrate) {
-            init->Timing = pyb_i2c_baudrate_timing[i].timing;
-            return;
-        }
-    }
-    nlr_raise(mp_obj_new_exception_msg_varg(&mp_type_ValueError,
+	STATIC void i2c_set_baudrate(I2C_InitTypeDef *init, uint32_t baudrate) {
+	    for (int i = 0; i < NUM_BAUDRATE_TIMINGS; i++) {
+        	if (pyb_i2c_baudrate_timing[i].baudrate == baudrate) {
+	            init->Timing = pyb_i2c_baudrate_timing[i].timing;
+	            return;
+        	}
+            }
+   	 nlr_raise(mp_obj_new_exception_msg_varg(&mp_type_ValueError,
                                             "Unsupported I2C baudrate: %u", baudrate));
-}
+	}
 
-uint32_t pyb_i2c_get_baudrate(I2C_HandleTypeDef *i2c) {
-    for (int i = 0; i < NUM_BAUDRATE_TIMINGS; i++) {
-        if (pyb_i2c_baudrate_timing[i].timing == i2c->Init.Timing) {
-            return pyb_i2c_baudrate_timing[i].baudrate;
-        }
-    }
-    return 0;
-}
+	uint32_t pyb_i2c_get_baudrate(I2C_HandleTypeDef *i2c) {
+	    for (int i = 0; i < NUM_BAUDRATE_TIMINGS; i++) {
+        	if (pyb_i2c_baudrate_timing[i].timing == i2c->Init.Timing) {
+	            return pyb_i2c_baudrate_timing[i].baudrate;
+        	}
+    	    }
+	    return 0;
+	}
 
 #else
 
-#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
-#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FULL)
+	#define MICROPY_HW_I2C_BAUDRATE_DEFAULT (PYB_I2C_SPEED_FULL)
+	#define MICROPY_HW_I2C_BAUDRATE_MAX (PYB_I2C_SPEED_FULL)
 
-STATIC void i2c_set_baudrate(I2C_InitTypeDef *init, uint32_t baudrate) {
-    init->ClockSpeed = baudrate;
-    init->DutyCycle = I2C_DUTYCYCLE_16_9;
-}
+	STATIC void i2c_set_baudrate(I2C_InitTypeDef *init, uint32_t baudrate) {
+	    init->ClockSpeed = baudrate;
+    	init->DutyCycle = I2C_DUTYCYCLE_16_9;
+	}
 
-uint32_t pyb_i2c_get_baudrate(I2C_HandleTypeDef *i2c) {
-    uint32_t pfreq = i2c->Instance->CR2 & 0x3f;
-    uint32_t ccr = i2c->Instance->CCR & 0xfff;
-    if (i2c->Instance->CCR & 0x8000) {
-        // Fast mode, assume duty cycle of 16/9
-        return pfreq * 40000 / ccr;
-    } else {
-        // Standard mode
-        return pfreq * 500000 / ccr;
-    }
-}
+	uint32_t pyb_i2c_get_baudrate(I2C_HandleTypeDef *i2c) {
+	    uint32_t pfreq = i2c->Instance->CR2 & 0x3f;
+	    uint32_t ccr = i2c->Instance->CCR & 0xfff;
+	    if (i2c->Instance->CCR & 0x8000) {
+        	// Fast mode, assume duty cycle of 16/9
+	        return pfreq * 40000 / ccr;
+	    } else {
+        	// Standard mode
+	        return pfreq * 500000 / ccr;
+    	    }
+	}
 
 #endif
 

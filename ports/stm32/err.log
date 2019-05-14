@@ -1,41 +1,19 @@
-pyb_i2c.c: In function 'i2c_set_baudrate':
-pyb_i2c.c:229:9: error: 'I2C_InitTypeDef {aka struct <anonymous>}' has no member named 'ClockSpeed'
-     init->ClockSpeed = baudrate;
-         ^
-pyb_i2c.c:230:9: error: 'I2C_InitTypeDef {aka struct <anonymous>}' has no member named 'DutyCycle'
-     init->DutyCycle = I2C_DUTYCYCLE_16_9;
-         ^
-pyb_i2c.c:230:23: error: 'I2C_DUTYCYCLE_16_9' undeclared (first use in this function)
-     init->DutyCycle = I2C_DUTYCYCLE_16_9;
-                       ^
-pyb_i2c.c:230:23: note: each undeclared identifier is reported only once for each function it appears in
-pyb_i2c.c: In function 'pyb_i2c_get_baudrate':
-pyb_i2c.c:235:33: error: 'I2C_TypeDef {aka struct <anonymous>}' has no member named 'CCR'
-     uint32_t ccr = i2c->Instance->CCR & 0xfff;
-                                 ^
-pyb_i2c.c:236:22: error: 'I2C_TypeDef {aka struct <anonymous>}' has no member named 'CCR'
-     if (i2c->Instance->CCR & 0x8000) {
-                      ^
 pyb_i2c.c: In function 'pyb_i2c_init_freq':
-pyb_i2c.c:389:31: error: 'I2C_DUALADDRESS_DISABLED' undeclared (first use in this function)
+pyb_i2c.c:387:31: error: 'I2C_DUALADDRESS_DISABLED' undeclared (first use in this function)
      init->DualAddressMode   = I2C_DUALADDRESS_DISABLED;
                                ^
-pyb_i2c.c:390:31: error: 'I2C_GENERALCALL_DISABLED' undeclared (first use in this function)
+pyb_i2c.c:387:31: note: each undeclared identifier is reported only once for each function it appears in
+pyb_i2c.c:388:31: error: 'I2C_GENERALCALL_DISABLED' undeclared (first use in this function)
      init->GeneralCallMode   = I2C_GENERALCALL_DISABLED;
                                ^
 pyb_i2c.c: In function 'pyb_i2c_init_helper':
-pyb_i2c.c:616:29: error: 'I2C_DUALADDRESS_DISABLED' undeclared (first use in this function)
+pyb_i2c.c:614:29: error: 'I2C_DUALADDRESS_DISABLED' undeclared (first use in this function)
      init->DualAddressMode = I2C_DUALADDRESS_DISABLED;
                              ^
-pyb_i2c.c:617:46: error: 'I2C_GENERALCALL_ENABLED' undeclared (first use in this function)
+pyb_i2c.c:615:46: error: 'I2C_GENERALCALL_ENABLED' undeclared (first use in this function)
      init->GeneralCallMode = args[3].u_bool ? I2C_GENERALCALL_ENABLED : I2C_GENERALCALL_DISABLED;
                                               ^
-pyb_i2c.c:617:72: error: 'I2C_GENERALCALL_DISABLED' undeclared (first use in this function)
+pyb_i2c.c:615:72: error: 'I2C_GENERALCALL_DISABLED' undeclared (first use in this function)
      init->GeneralCallMode = args[3].u_bool ? I2C_GENERALCALL_ENABLED : I2C_GENERALCALL_DISABLED;
                                                                         ^
-pyb_i2c.c: In function 'pyb_i2c_get_baudrate':
-pyb_i2c.c:243:1: error: control reaches end of non-void function [-Werror=return-type]
- }
- ^
-cc1: all warnings being treated as errors
 make: *** [build-STM32F3DISC/pyb_i2c.o] Error 1
