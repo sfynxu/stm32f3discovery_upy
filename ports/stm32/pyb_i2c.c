@@ -246,16 +246,16 @@ void i2c_init0(void) {
     // Initialise the I2C handles.
     // The structs live on the BSS so all other fields will be zero after a reset.
     #if defined(MICROPY_HW_I2C1_SCL)
-    I2CHandle1.Instance = I2C1;
+        I2CHandle1.Instance = I2C1;
     #endif
     #if defined(MICROPY_HW_I2C2_SCL)
-    I2CHandle2.Instance = I2C2;
+        I2CHandle2.Instance = I2C2;
     #endif
     #if defined(MICROPY_HW_I2C3_SCL)
-    I2CHandle3.Instance = I2C3;
+        I2CHandle3.Instance = I2C3;
     #endif
     #if defined(MICROPY_HW_I2C4_SCL)
-    I2CHandle4.Instance = I2C4;
+        I2CHandle4.Instance = I2C4;
     #endif
 }
 
