@@ -83,6 +83,8 @@
 #define HAL_UART_MODULE_ENABLED
 #define HAL_USART_MODULE_ENABLED
 #define HAL_WWDG_MODULE_ENABLED
+// Acitvate Legacy for I2C 
+#define USE_LEGACY
 
 /* ########################## HSE/HSI Values adaptation ##################### */
 /**

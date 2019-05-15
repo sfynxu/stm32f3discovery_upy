@@ -1,19 +1,28 @@
-pyb_i2c.c: In function 'pyb_i2c_init_freq':
-pyb_i2c.c:387:31: error: 'I2C_DUALADDRESS_DISABLED' undeclared (first use in this function)
-     init->DualAddressMode   = I2C_DUALADDRESS_DISABLED;
-                               ^
-pyb_i2c.c:387:31: note: each undeclared identifier is reported only once for each function it appears in
-pyb_i2c.c:388:31: error: 'I2C_GENERALCALL_DISABLED' undeclared (first use in this function)
-     init->GeneralCallMode   = I2C_GENERALCALL_DISABLED;
-                               ^
-pyb_i2c.c: In function 'pyb_i2c_init_helper':
-pyb_i2c.c:614:29: error: 'I2C_DUALADDRESS_DISABLED' undeclared (first use in this function)
-     init->DualAddressMode = I2C_DUALADDRESS_DISABLED;
-                             ^
-pyb_i2c.c:615:46: error: 'I2C_GENERALCALL_ENABLED' undeclared (first use in this function)
-     init->GeneralCallMode = args[3].u_bool ? I2C_GENERALCALL_ENABLED : I2C_GENERALCALL_DISABLED;
-                                              ^
-pyb_i2c.c:615:72: error: 'I2C_GENERALCALL_DISABLED' undeclared (first use in this function)
-     init->GeneralCallMode = args[3].u_bool ? I2C_GENERALCALL_ENABLED : I2C_GENERALCALL_DISABLED;
-                                                                        ^
-make: *** [build-STM32F3DISC/pyb_i2c.o] Error 1
+In file included from ./mpconfigport.h:31:0,
+                 from ../../py/mpconfig.h:62,
+                 from ../../py/mpstate.h:31,
+                 from ../../py/runtime.h:29,
+                 from uart.c:31:
+uart.c: In function 'uart_init':
+boards/STM32F3DISC/mpconfigboard.h:27:34: error: 'pin_A1' undeclared (first use in this function)
+ #define MICROPY_HW_UART2_RTS    (pin_A1)
+                                  ^
+uart.c:191:27: note: in expansion of macro 'MICROPY_HW_UART2_RTS'
+                 pins[2] = MICROPY_HW_UART2_RTS;
+                           ^
+boards/STM32F3DISC/mpconfigboard.h:27:34: note: each undeclared identifier is reported only once for each function it appears in
+ #define MICROPY_HW_UART2_RTS    (pin_A1)
+                                  ^
+uart.c:191:27: note: in expansion of macro 'MICROPY_HW_UART2_RTS'
+                 pins[2] = MICROPY_HW_UART2_RTS;
+                           ^
+uart.c:354:30: error: 'USART_CR1_IE_ALL' undeclared (first use in this function)
+     uart_obj->uartx->CR1 &= ~USART_CR1_IE_ALL;
+                              ^
+uart.c:355:30: error: 'USART_CR2_IE_ALL' undeclared (first use in this function)
+     uart_obj->uartx->CR2 &= ~USART_CR2_IE_ALL;
+                              ^
+uart.c:356:30: error: 'USART_CR3_IE_ALL' undeclared (first use in this function)
+     uart_obj->uartx->CR3 &= ~USART_CR3_IE_ALL;
+                              ^
+make: *** [build-STM32F3DISC/uart.o] Error 1
