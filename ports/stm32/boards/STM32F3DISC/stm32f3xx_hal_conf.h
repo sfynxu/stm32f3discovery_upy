@@ -242,8 +242,8 @@
 
 #ifdef HAL_PCCARD_MODULE_ENABLED
   #include "stm32f3xx_hal_pccard.h"
-#endif /* HAL_PCCARD_MODULE_ENABLED */ 
-  
+#endif /* HAL_PCCARD_MODULE_ENABLED */
+
 #ifdef HAL_HRTIM_MODULE_ENABLED
  #include "stm32f3xx_hal_hrtim.h"
 #endif /* HAL_HRTIM_MODULE_ENABLED */
