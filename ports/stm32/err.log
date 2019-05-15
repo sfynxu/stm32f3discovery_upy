@@ -7,13 +7,13 @@ uart.c: In function 'uart_init':
 boards/STM32F3DISC/mpconfigboard.h:27:34: error: 'pin_A1' undeclared (first use in this function)
  #define MICROPY_HW_UART2_RTS    (pin_A1)
                                   ^
-uart.c:191:27: note: in expansion of macro 'MICROPY_HW_UART2_RTS'
+uart.c:192:27: note: in expansion of macro 'MICROPY_HW_UART2_RTS'
                  pins[2] = MICROPY_HW_UART2_RTS;
                            ^
 boards/STM32F3DISC/mpconfigboard.h:27:34: note: each undeclared identifier is reported only once for each function it appears in
  #define MICROPY_HW_UART2_RTS    (pin_A1)
                                   ^
-uart.c:191:27: note: in expansion of macro 'MICROPY_HW_UART2_RTS'
+uart.c:192:27: note: in expansion of macro 'MICROPY_HW_UART2_RTS'
                  pins[2] = MICROPY_HW_UART2_RTS;
                            ^
 make: *** [build-STM32F3DISC/uart.o] Error 1
