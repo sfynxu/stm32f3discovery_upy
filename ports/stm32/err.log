@@ -16,13 +16,4 @@ boards/STM32F3DISC/mpconfigboard.h:27:34: note: each undeclared identifier is re
 uart.c:191:27: note: in expansion of macro 'MICROPY_HW_UART2_RTS'
                  pins[2] = MICROPY_HW_UART2_RTS;
                            ^
-uart.c:354:30: error: 'USART_CR1_IE_ALL' undeclared (first use in this function)
-     uart_obj->uartx->CR1 &= ~USART_CR1_IE_ALL;
-                              ^
-uart.c:355:30: error: 'USART_CR2_IE_ALL' undeclared (first use in this function)
-     uart_obj->uartx->CR2 &= ~USART_CR2_IE_ALL;
-                              ^
-uart.c:356:30: error: 'USART_CR3_IE_ALL' undeclared (first use in this function)
-     uart_obj->uartx->CR3 &= ~USART_CR3_IE_ALL;
-                              ^
 make: *** [build-STM32F3DISC/uart.o] Error 1
