@@ -1,6 +1,3 @@
-flash.c:40:37: error: 'FLASH_BANK1_END' undeclared here (not in a function)
-     { FLASH_BASE, FLASH_PAGE_SIZE, (FLASH_BANK1_END + 1 - FLASH_BASE) / FLASH_PAGE_SIZE },
-                                     ^
 In file included from boards/STM32F3DISC/stm32f3xx_hal_conf.h:231:0,
                  from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:46,
                  from ./mpconfigboard_common.h:30,
@@ -8,72 +5,36 @@ In file included from boards/STM32F3DISC/stm32f3xx_hal_conf.h:231:0,
                  from ../../py/mpconfig.h:62,
                  from flash.c:27:
 flash.c: In function 'flash_erase':
-flash.c:187:45: error: 'FLASH_FLAG_OPERR' undeclared (first use in this function)
+flash.c:196:45: error: 'FLASH_FLAG_OPERR' undeclared (first use in this function)
      __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
                                              ^
 ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
  #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
                                                             ^
-flash.c:187:45: note: each undeclared identifier is reported only once for each function it appears in
+flash.c:196:45: note: each undeclared identifier is reported only once for each function it appears in
      __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
                                              ^
 ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
  #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
                                                             ^
-flash.c:187:43: error: invalid operands to binary | (have 'unsigned int' and 'const flash_layout_t * {aka const struct <anonymous> *}')
-     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
-                                           ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-flash.c:187:62: error: invalid operands to binary | (have 'const flash_layout_t * {aka const struct <anonymous> *}' and 'unsigned int')
-     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
-                                                              ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-flash.c:188:28: error: 'FLASH_FLAG_PGAERR' undeclared (first use in this function)
+flash.c:197:28: error: 'FLASH_FLAG_PGAERR' undeclared (first use in this function)
                             FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
                             ^
 ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
  #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
                                                             ^
-flash.c:187:82: error: invalid operands to binary | (have 'const flash_layout_t * {aka const struct <anonymous> *}' and 'const flash_layout_t * {aka const struct <anonymous> *}')
-     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
-                                                                                  ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-flash.c:188:48: error: 'FLASH_FLAG_PGPERR' undeclared (first use in this function)
+flash.c:197:48: error: 'FLASH_FLAG_PGPERR' undeclared (first use in this function)
                             FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
                                                 ^
 ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
  #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
                                                             ^
-flash.c:188:46: error: invalid operands to binary | (have 'const flash_layout_t * {aka const struct <anonymous> *}' and 'const flash_layout_t * {aka const struct <anonymous> *}')
-                            FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
-                                              ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-flash.c:188:68: error: 'FLASH_FLAG_PGSERR' undeclared (first use in this function)
+flash.c:197:68: error: 'FLASH_FLAG_PGSERR' undeclared (first use in this function)
                             FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
                                                                     ^
 ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
  #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
                                                             ^
-flash.c:188:66: error: invalid operands to binary | (have 'const flash_layout_t * {aka const struct <anonymous> *}' and 'const flash_layout_t * {aka const struct <anonymous> *}')
-                            FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
-                                                                  ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:57: error: assignment makes integer from pointer without a cast [-Werror=int-conversion]
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                         ^
-flash.c:187:5: note: in expansion of macro '__HAL_FLASH_CLEAR_FLAG'
-     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
-     ^
 In file included from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h:48:0,
                  from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h:45,
                  from boards/STM32F3DISC/stm32f3xx_hal_conf.h:187,
@@ -85,13 +46,10 @@ In file included from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_
 ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:380:39: error: 'FLASH_TYPEERASE_SECTORS' undeclared (first use in this function)
  #define TYPEERASE_SECTORS             FLASH_TYPEERASE_SECTORS
                                        ^
-flash.c:192:33: note: in expansion of macro 'TYPEERASE_SECTORS'
+flash.c:201:33: note: in expansion of macro 'TYPEERASE_SECTORS'
      EraseInitStruct.TypeErase = TYPEERASE_SECTORS;
                                  ^
-flash.c:192:31: error: assignment makes integer from pointer without a cast [-Werror=int-conversion]
-     EraseInitStruct.TypeErase = TYPEERASE_SECTORS;
-                               ^
-flash.c:193:20: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'VoltageRange'
+flash.c:202:20: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'VoltageRange'
      EraseInitStruct.VoltageRange = VOLTAGE_RANGE_3; // voltage range needs to be 2.7V to 3.6V
                     ^
 In file included from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h:48:0,
@@ -105,29 +63,16 @@ In file included from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_
 ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:406:39: error: 'FLASH_VOLTAGE_RANGE_3' undeclared (first use in this function)
  #define VOLTAGE_RANGE_3               FLASH_VOLTAGE_RANGE_3
                                        ^
-flash.c:193:36: note: in expansion of macro 'VOLTAGE_RANGE_3'
+flash.c:202:36: note: in expansion of macro 'VOLTAGE_RANGE_3'
      EraseInitStruct.VoltageRange = VOLTAGE_RANGE_3; // voltage range needs to be 2.7V to 3.6V
                                     ^
-flash.c:193:5: error: statement with no effect [-Werror=unused-value]
-     EraseInitStruct.VoltageRange = VOLTAGE_RANGE_3; // voltage range needs to be 2.7V to 3.6V
-     ^
-flash.c:197:20: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'Sector'
+flash.c:206:20: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'Sector'
      EraseInitStruct.Sector = flash_get_sector_info(flash_dest, NULL, NULL);
                     ^
-flash.c:197:5: error: statement with no effect [-Werror=unused-value]
-     EraseInitStruct.Sector = flash_get_sector_info(flash_dest, NULL, NULL);
-     ^
-flash.c:198:20: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'NbSectors'
+flash.c:207:20: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'NbSectors'
      EraseInitStruct.NbSectors = flash_get_sector_info(flash_dest + 4 * num_word32 - 1, NULL, NULL) - EraseInitStruct.Sector + 1;
                     ^
-flash.c:198:117: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'Sector'
+flash.c:207:117: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'Sector'
      EraseInitStruct.NbSectors = flash_get_sector_info(flash_dest + 4 * num_word32 - 1, NULL, NULL) - EraseInitStruct.Sector + 1;
                                                                                                                      ^
-flash.c:198:100: error: invalid operands to binary - (have 'uint32_t {aka long unsigned int}' and 'const flash_layout_t * {aka const struct <anonymous> *}')
-     EraseInitStruct.NbSectors = flash_get_sector_info(flash_dest + 4 * num_word32 - 1, NULL, NULL) - EraseInitStruct.Sector + 1;
-                                                                                                    ^
-flash.c:198:5: error: statement with no effect [-Werror=unused-value]
-     EraseInitStruct.NbSectors = flash_get_sector_info(flash_dest + 4 * num_word32 - 1, NULL, NULL) - EraseInitStruct.Sector + 1;
-     ^
-cc1: all warnings being treated as errors
 make: *** [build-STM32F3DISC/flash.o] Error 1

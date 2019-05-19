@@ -34,7 +34,7 @@ typedef struct {
     uint32_t sector_count;
 } flash_layout_t;
 
-#if defined(STM32F0) || defined(STM32F3)
+#if defined(STM32F0)
 
 static const flash_layout_t flash_layout[] = {
     { FLASH_BASE, FLASH_PAGE_SIZE, (FLASH_BANK1_END + 1 - FLASH_BASE) / FLASH_PAGE_SIZE },
@@ -78,6 +78,15 @@ static const flash_layout_t flash_layout[] = {
 
 static const flash_layout_t flash_layout[] = {
     { 0x08000000, 0x20000, 16 },
+};
+
+#elif defined(STM32F3)
+
+static const flash_layout_t flash_layout[] = {
+    {0x60000000, 0x10000000,1}, // Bank1
+    {0x70000000, 0x10000000,2}, // Bank2 
+    {0x80000000, 0x10000000,3}, // Bank3
+    {0x90000000, 0x10000000,4}, // Bank4
 };
 
 #else
