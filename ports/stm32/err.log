@@ -1,19 +1,14 @@
-In file included from ./mpconfigport.h:31:0,
-                 from ../../py/mpconfig.h:62,
-                 from ../../py/mpstate.h:31,
-                 from ../../py/runtime.h:29,
-                 from uart.c:31:
-uart.c: In function 'uart_init':
-boards/STM32F3DISC/mpconfigboard.h:27:34: error: 'pin_A1' undeclared (first use in this function)
- #define MICROPY_HW_UART2_RTS    (pin_A1)
-                                  ^
-uart.c:192:27: note: in expansion of macro 'MICROPY_HW_UART2_RTS'
-                 pins[2] = MICROPY_HW_UART2_RTS;
-                           ^
-boards/STM32F3DISC/mpconfigboard.h:27:34: note: each undeclared identifier is reported only once for each function it appears in
- #define MICROPY_HW_UART2_RTS    (pin_A1)
-                                  ^
-uart.c:192:27: note: in expansion of macro 'MICROPY_HW_UART2_RTS'
-                 pins[2] = MICROPY_HW_UART2_RTS;
-                           ^
-make: *** [build-STM32F3DISC/uart.o] Error 1
+modmachine.c: In function 'machine_init':
+modmachine.c:76:25: error: 'RCC_CSR_BORRSTF' undeclared (first use in this function)
+ #define RCC_SR_BORRSTF  RCC_CSR_BORRSTF
+                         ^
+modmachine.c:122:24: note: in expansion of macro 'RCC_SR_BORRSTF'
+             || state & RCC_SR_BORRSTF
+                        ^
+modmachine.c:76:25: note: each undeclared identifier is reported only once for each function it appears in
+ #define RCC_SR_BORRSTF  RCC_CSR_BORRSTF
+                         ^
+modmachine.c:122:24: note: in expansion of macro 'RCC_SR_BORRSTF'
+             || state & RCC_SR_BORRSTF
+                        ^
+make: *** [build-STM32F3DISC/modmachine.o] Error 1
