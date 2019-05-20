@@ -108,7 +108,7 @@ void __fatal_error(const char *msg);
   * @{
   */
 
-#if defined(STM32F4) || defined(STM32F7)
+#if defined(STM32F4) || defined(STM32F7) || defined(STM32F3)
 
 #define CONFIG_RCC_CR_1ST (RCC_CR_HSION)
 #define CONFIG_RCC_CR_2ND (RCC_CR_HSEON | RCC_CR_CSSON | RCC_CR_PLLON)
@@ -146,6 +146,10 @@ const uint32_t MSIRangeTable[12] = {100000, 200000, 400000, 800000, 1000000, 200
 #define FLASH_BASE FLASH_BANK1_BASE
 uint32_t SystemD2Clock = 64000000;
 const uint8_t D1CorePrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6, 7, 8, 9};
+#elif defined(STM32F3)
+#define CONFIG_RCC_CR_1ST (RCC_CR_HSION)
+#define CONFIG_RCC_CR_2ND (RCC_CR_HSEON | RCC_CR_CSSON | RCC_CR_PLLON)
+const uint8_t AHBPrescTable[16] = {0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9};
 
 #else
 #error Unknown processor
@@ -183,8 +187,11 @@ const uint8_t D1CorePrescTable[16] = {0, 0, 0, 0, 1, 2, 3, 4, 1, 2, 3, 4, 6, 7, 
                is no need to call the 2 first functions listed above, since SystemCoreClock
                variable is updated automatically.
   */
+#if defined(STM32F3)
+  uint32_t SystemCoreClock = 8000000;
+#else
   uint32_t SystemCoreClock = 16000000;
-
+#endif
 /**
   * @}
   */
@@ -217,13 +224,25 @@ void SystemInit(void)
   /* Reset the RCC clock configuration to the default reset state ------------*/
 
   /* Set configured startup clk source */
+  #if defined(STM32F3)
+  RCC->CR |= (uint32_t)0x00000001;
+  #else
   RCC->CR |= CONFIG_RCC_CR_1ST;
+  #endif
 
   /* Reset CFGR register */
+  #if defined(STM32F3)
+  RCC->CFGR &= 0xF87FC00C;
+  #else
   RCC->CFGR = 0x00000000;
+  #endif
 
   /* Reset HSEON, CSSON and PLLON bits */
+  #if defined(STM32F3)
+  RCC->CR &= (uint32_t)0xFEF6FFFF;
+  #else
   RCC->CR &= ~ CONFIG_RCC_CR_2ND;
+  #endif
 
   /* Reset PLLCFGR register */
   RCC->PLLCFGR = CONFIG_RCC_PLLCFGR;
@@ -263,8 +282,18 @@ void SystemInit(void)
   /* Reset HSEBYP bit */
   RCC->CR &= (uint32_t)0xFFFBFFFF;
 
+  #if defined(STM32F3)
+  /* Reset PLLSCR, PLLXTPRE, PLLMUL and USBPRE bits */
+  RCC->CFGR &= (uint32_t) 0xFF80FFFF;
+  /* Reset PREDIV1[3:0] bits */
+  RCC->CFGR2 &= (uint32_t) 0xFFFFFFF0; 
+  /* Reset USARSW[1:0], I2CSW and TIMs bits */
+  RCC->CFGR3 &= (uint32_t) 0xFF00FCCC;
+  #endif
+
+
   /* Disable all interrupts */
-  #if defined(STM32F4) || defined(STM32F7)
+  #if defined(STM32F4) || defined(STM32F7) || defined(STM32F3)
   RCC->CIR = 0x00000000;
   #elif defined(STM32L4) || defined(STM32H7)
   RCC->CIER = 0x00000000;
@@ -280,7 +309,11 @@ void SystemInit(void)
   SCB->VTOR = MICROPY_HW_VTOR;
 #else
 #ifdef VECT_TAB_SRAM
+  #if defined(STM32F3)
+  SCB->VTOR = SRAM_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
+  #else
   SCB->VTOR = SRAM1_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal SRAM */
+  #endif
 #else
   SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
 #endif
