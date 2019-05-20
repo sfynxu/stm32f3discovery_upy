@@ -1,52 +1,17 @@
-system_stm32.c:151:2: error: #error Unknown processor
- #error Unknown processor
-  ^
-system_stm32.c: In function 'SystemInit':
-system_stm32.c:220:14: error: 'CONFIG_RCC_CR_1ST' undeclared (first use in this function)
-   RCC->CR |= CONFIG_RCC_CR_1ST;
-              ^
-system_stm32.c:220:14: note: each undeclared identifier is reported only once for each function it appears in
-system_stm32.c:226:16: error: 'CONFIG_RCC_CR_2ND' undeclared (first use in this function)
-   RCC->CR &= ~ CONFIG_RCC_CR_2ND;
-                ^
-system_stm32.c:229:6: error: 'RCC_TypeDef {aka struct <anonymous>}' has no member named 'PLLCFGR'
-   RCC->PLLCFGR = CONFIG_RCC_PLLCFGR;
-      ^
-system_stm32.c:229:18: error: 'CONFIG_RCC_PLLCFGR' undeclared (first use in this function)
-   RCC->PLLCFGR = CONFIG_RCC_PLLCFGR;
-                  ^
-system_stm32.c: In function 'SystemClock_Config':
-system_stm32.c:480:26: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLM'
-     RCC_OscInitStruct.PLL.PLLM = MICROPY_HW_CLK_PLLM;
-                          ^
-system_stm32.c:480:34: error: 'MICROPY_HW_CLK_PLLM' undeclared (first use in this function)
-     RCC_OscInitStruct.PLL.PLLM = MICROPY_HW_CLK_PLLM;
-                                  ^
-system_stm32.c:481:26: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLN'
-     RCC_OscInitStruct.PLL.PLLN = MICROPY_HW_CLK_PLLN;
-                          ^
-system_stm32.c:481:34: error: 'MICROPY_HW_CLK_PLLN' undeclared (first use in this function)
-     RCC_OscInitStruct.PLL.PLLN = MICROPY_HW_CLK_PLLN;
-                                  ^
-system_stm32.c:482:26: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLP'
-     RCC_OscInitStruct.PLL.PLLP = MICROPY_HW_CLK_PLLP;
-                          ^
-system_stm32.c:482:34: error: 'MICROPY_HW_CLK_PLLP' undeclared (first use in this function)
-     RCC_OscInitStruct.PLL.PLLP = MICROPY_HW_CLK_PLLP;
-                                  ^
-system_stm32.c:483:26: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLQ'
-     RCC_OscInitStruct.PLL.PLLQ = MICROPY_HW_CLK_PLLQ;
-                          ^
-system_stm32.c:483:34: error: 'MICROPY_HW_CLK_PLLQ' undeclared (first use in this function)
-     RCC_OscInitStruct.PLL.PLLQ = MICROPY_HW_CLK_PLLQ;
-                                  ^
-system_stm32.c:541:45: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLN'
-     uint32_t vco_out = RCC_OscInitStruct.PLL.PLLN * (HSE_VALUE / 1000000) / RCC_OscInitStruct.PLL.PLLM;
-                                             ^
-system_stm32.c:541:98: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLM'
-     uint32_t vco_out = RCC_OscInitStruct.PLL.PLLN * (HSE_VALUE / 1000000) / RCC_OscInitStruct.PLL.PLLM;
-                                                                                                  ^
-system_stm32.c:542:58: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLP'
-     uint32_t sysclk_mhz = vco_out / RCC_OscInitStruct.PLL.PLLP;
-                                                          ^
-make: *** [build-STM32F3DISC/system_stm32.o] Error 1
+build-STM32F3DISC/main.o: In function `stm32_main':
+main.c:(.text.stm32_main+0x1c): undefined reference to `SystemClock_Config'
+build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0x8): undefined reference to `dma_I2C_1_TX'
+build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0xc): undefined reference to `dma_I2C_1_RX'
+build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0x1c): undefined reference to `dma_I2C_2_TX'
+build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0x20): undefined reference to `dma_I2C_2_RX'
+build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x4): undefined reference to `dma_SPI_1_TX'
+build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x8): undefined reference to `dma_SPI_1_RX'
+build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x10): undefined reference to `dma_SPI_2_TX'
+build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x14): undefined reference to `dma_SPI_2_RX'
+build-STM32F3DISC/machine_i2c.o: In function `machine_hard_i2c_readfrom':
+machine_i2c.c:(.text.machine_hard_i2c_readfrom+0xe): undefined reference to `i2c_readfrom'
+build-STM32F3DISC/machine_i2c.o: In function `machine_hard_i2c_writeto':
+machine_i2c.c:(.text.machine_hard_i2c_writeto+0xe): undefined reference to `i2c_writeto'
+build-STM32F3DISC/machine_i2c.o: In function `machine_hard_i2c_init':
+machine_i2c.c:(.text.machine_hard_i2c_init+0x6): undefined reference to `i2c_init'
+make: *** [build-STM32F3DISC/firmware.elf] Error 1

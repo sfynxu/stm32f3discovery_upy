@@ -272,12 +272,22 @@ SRC_C = \
 	adc.c \
 	$(wildcard $(BOARD_DIR)/*.c)
 
+ifeq ($(MCU_SERIES),$(filter $(MCU_SERIES),f0 f3))
+
 ifeq ($(MCU_SERIES),f0)
+
 SRC_O = \
 	$(STARTUP_FILE) \
 	system_stm32f0.o \
 	resethandler_m0.o \
 	gchelper_m0.o
+else
+SRC_O = \
+	$(STARTUP_FILE) \
+	system_stm32f3.o \
+	resethandler.o \
+	gchelper.o
+endif
 else
 SRC_O = \
 	$(STARTUP_FILE) \
@@ -322,7 +332,7 @@ SRC_HAL += $(addprefix $(HAL_DIR)/Src/stm32$(MCU_SERIES)xx_,\
 	)
 endif
 
-ifeq ($(MCU_SERIES),$(filter $(MCU_SERIES),f3 f4 f7 h7))
+ifeq ($(MCU_SERIES),$(filter $(MCU_SERIES),f4 f7 h7))
 SRC_HAL += $(addprefix $(HAL_DIR)/Src/stm32$(MCU_SERIES)xx_,\
 	hal_sdram.c \
 	hal_dma_ex.c \
