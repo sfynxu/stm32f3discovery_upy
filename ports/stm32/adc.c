@@ -303,7 +303,10 @@ STATIC void adc_config_channel(ADC_HandleTypeDef *adc_handle, uint32_t channel) 
     sConfig.Rank = 1;
 #if defined(STM32F0)
     sConfig.SamplingTime = ADC_SAMPLETIME_71CYCLES_5;
-#elif defined(STM32F4) || defined(STM32F7) || defined(STM32F3)
+#elif defined(STM32F3)
+
+    sConfig.SamplingTime = ADC_SAMPLETIME_19CYCLES_5;
+#elif defined(STM32F4) || defined(STM32F7)
     sConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
 #elif defined(STM32H7)
     if (channel == ADC_CHANNEL_VREFINT
@@ -504,9 +507,9 @@ STATIC mp_obj_t adc_read_timed(mp_obj_t self_in, mp_obj_t buf_in, mp_obj_t freq_
             HAL_ADC_Start(&self->handle);
         } else {
             // for subsequent samples we can just set the "start sample" bit
-#if defined(STM32F4) || defined(STM32F7) || defined(STM32F3)
+#if defined(STM32F4) || defined(STM32F7)
             ADCx->CR2 |= (uint32_t)ADC_CR2_SWSTART;
-#elif defined(STM32F0) || defined(STM32H7) || defined(STM32L4)
+#elif defined(STM32F0) || defined(STM32H7) || defined(STM32L4) || defined(STM32F3)
             SET_BIT(ADCx->CR, ADC_CR_ADSTART);
 #else
             #error Unsupported processor
@@ -614,9 +617,9 @@ STATIC mp_obj_t adc_read_timed_multi(mp_obj_t adc_array_in, mp_obj_t buf_array_i
             adc_config_channel(&adc->handle, adc->channel);
             // for the first sample we need to turn the ADC on
             // ADC is started: set the "start sample" bit
-            #if defined(STM32F4) || defined(STM32F7) || defined(STM32F3)
+            #if defined(STM32F4) || defined(STM32F7)
             ADCx->CR2 |= (uint32_t)ADC_CR2_SWSTART;
-            #elif defined(STM32F0) || defined(STM32H7) || defined(STM32L4)
+            #elif defined(STM32F0) || defined(STM32H7) || defined(STM32L4) || defined(STM32F3)
             SET_BIT(ADCx->CR, ADC_CR_ADSTART);
             #else
             #error Unsupported processor

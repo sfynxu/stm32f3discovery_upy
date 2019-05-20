@@ -188,12 +188,17 @@ void flash_erase(uint32_t flash_dest, uint32_t num_word32) {
     EraseInitStruct.Banks       = get_bank(flash_dest);
     EraseInitStruct.Page        = get_page(flash_dest);
     EraseInitStruct.NbPages     = get_page(flash_dest + 4 * num_word32 - 1) - EraseInitStruct.Page + 1;;
+    #elif defined(STM32F3)   
+    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP);	
+    EraseInitStruct.TypeErase   = FLASH_TYPEERASE_PAGES;
+    EraseInitStruct.PageAddress = flash_dest;
+    EraseInitStruct.NbPages     = (4 * num_word32 + FLASH_PAGE_SIZE - 4) / FLASH_PAGE_SIZE;
     #else
     // Clear pending flags (if any)
     #if defined(STM32H7)
     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_ALL_ERRORS_BANK1 | FLASH_FLAG_ALL_ERRORS_BANK2);
-    #else
-    __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
+    #else    
+   __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
                            FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
     #endif
 

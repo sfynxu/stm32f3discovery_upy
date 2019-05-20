@@ -56,6 +56,8 @@
 #elif defined(STM32F303xC) 
 #define CACHE_MEM_START_ADDR (0x10000000) // CCM data RAM, 8k
 #define FLASH_SECTOR_SIZE_MAX (0x2000) //8k max, size of CCM
+#define FLASH_MEM_SEG1_START_ADDR (0x08004000) // sector 1
+#define FLASH_MEM_SEG1_NUM_BLOCKS (128) // sectors 1,2,3,4: 16k+16k+16k+16k=64k
 
 #elif defined(STM32F401xE) || defined(STM32F411xE) || defined(STM32F446xx)
 

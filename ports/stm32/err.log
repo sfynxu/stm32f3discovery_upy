@@ -1,78 +1,52 @@
-In file included from boards/STM32F3DISC/stm32f3xx_hal_conf.h:231:0,
-                 from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:46,
-                 from ./mpconfigboard_common.h:30,
-                 from ./mpconfigport.h:32,
-                 from ../../py/mpconfig.h:62,
-                 from flash.c:27:
-flash.c: In function 'flash_erase':
-flash.c:196:45: error: 'FLASH_FLAG_OPERR' undeclared (first use in this function)
-     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
+system_stm32.c:151:2: error: #error Unknown processor
+ #error Unknown processor
+  ^
+system_stm32.c: In function 'SystemInit':
+system_stm32.c:220:14: error: 'CONFIG_RCC_CR_1ST' undeclared (first use in this function)
+   RCC->CR |= CONFIG_RCC_CR_1ST;
+              ^
+system_stm32.c:220:14: note: each undeclared identifier is reported only once for each function it appears in
+system_stm32.c:226:16: error: 'CONFIG_RCC_CR_2ND' undeclared (first use in this function)
+   RCC->CR &= ~ CONFIG_RCC_CR_2ND;
+                ^
+system_stm32.c:229:6: error: 'RCC_TypeDef {aka struct <anonymous>}' has no member named 'PLLCFGR'
+   RCC->PLLCFGR = CONFIG_RCC_PLLCFGR;
+      ^
+system_stm32.c:229:18: error: 'CONFIG_RCC_PLLCFGR' undeclared (first use in this function)
+   RCC->PLLCFGR = CONFIG_RCC_PLLCFGR;
+                  ^
+system_stm32.c: In function 'SystemClock_Config':
+system_stm32.c:480:26: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLM'
+     RCC_OscInitStruct.PLL.PLLM = MICROPY_HW_CLK_PLLM;
+                          ^
+system_stm32.c:480:34: error: 'MICROPY_HW_CLK_PLLM' undeclared (first use in this function)
+     RCC_OscInitStruct.PLL.PLLM = MICROPY_HW_CLK_PLLM;
+                                  ^
+system_stm32.c:481:26: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLN'
+     RCC_OscInitStruct.PLL.PLLN = MICROPY_HW_CLK_PLLN;
+                          ^
+system_stm32.c:481:34: error: 'MICROPY_HW_CLK_PLLN' undeclared (first use in this function)
+     RCC_OscInitStruct.PLL.PLLN = MICROPY_HW_CLK_PLLN;
+                                  ^
+system_stm32.c:482:26: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLP'
+     RCC_OscInitStruct.PLL.PLLP = MICROPY_HW_CLK_PLLP;
+                          ^
+system_stm32.c:482:34: error: 'MICROPY_HW_CLK_PLLP' undeclared (first use in this function)
+     RCC_OscInitStruct.PLL.PLLP = MICROPY_HW_CLK_PLLP;
+                                  ^
+system_stm32.c:483:26: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLQ'
+     RCC_OscInitStruct.PLL.PLLQ = MICROPY_HW_CLK_PLLQ;
+                          ^
+system_stm32.c:483:34: error: 'MICROPY_HW_CLK_PLLQ' undeclared (first use in this function)
+     RCC_OscInitStruct.PLL.PLLQ = MICROPY_HW_CLK_PLLQ;
+                                  ^
+system_stm32.c:541:45: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLN'
+     uint32_t vco_out = RCC_OscInitStruct.PLL.PLLN * (HSE_VALUE / 1000000) / RCC_OscInitStruct.PLL.PLLM;
                                              ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-flash.c:196:45: note: each undeclared identifier is reported only once for each function it appears in
-     __HAL_FLASH_CLEAR_FLAG(FLASH_FLAG_EOP | FLASH_FLAG_OPERR | FLASH_FLAG_WRPERR |
-                                             ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-flash.c:197:28: error: 'FLASH_FLAG_PGAERR' undeclared (first use in this function)
-                            FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
-                            ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-flash.c:197:48: error: 'FLASH_FLAG_PGPERR' undeclared (first use in this function)
-                            FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
-                                                ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-flash.c:197:68: error: 'FLASH_FLAG_PGSERR' undeclared (first use in this function)
-                            FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
-                                                                    ^
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:309:60: note: in definition of macro '__HAL_FLASH_CLEAR_FLAG'
- #define __HAL_FLASH_CLEAR_FLAG(__FLAG__)   ((FLASH->SR) = (__FLAG__))
-                                                            ^
-In file included from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h:48:0,
-                 from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h:45,
-                 from boards/STM32F3DISC/stm32f3xx_hal_conf.h:187,
-                 from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:46,
-                 from ./mpconfigboard_common.h:30,
-                 from ./mpconfigport.h:32,
-                 from ../../py/mpconfig.h:62,
-                 from flash.c:27:
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:380:39: error: 'FLASH_TYPEERASE_SECTORS' undeclared (first use in this function)
- #define TYPEERASE_SECTORS             FLASH_TYPEERASE_SECTORS
-                                       ^
-flash.c:201:33: note: in expansion of macro 'TYPEERASE_SECTORS'
-     EraseInitStruct.TypeErase = TYPEERASE_SECTORS;
-                                 ^
-flash.c:202:20: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'VoltageRange'
-     EraseInitStruct.VoltageRange = VOLTAGE_RANGE_3; // voltage range needs to be 2.7V to 3.6V
-                    ^
-In file included from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_def.h:48:0,
-                 from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_rcc.h:45,
-                 from boards/STM32F3DISC/stm32f3xx_hal_conf.h:187,
-                 from ../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal.h:46,
-                 from ./mpconfigboard_common.h:30,
-                 from ./mpconfigport.h:32,
-                 from ../../py/mpconfig.h:62,
-                 from flash.c:27:
-../../lib/stm32lib/STM32F3xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h:406:39: error: 'FLASH_VOLTAGE_RANGE_3' undeclared (first use in this function)
- #define VOLTAGE_RANGE_3               FLASH_VOLTAGE_RANGE_3
-                                       ^
-flash.c:202:36: note: in expansion of macro 'VOLTAGE_RANGE_3'
-     EraseInitStruct.VoltageRange = VOLTAGE_RANGE_3; // voltage range needs to be 2.7V to 3.6V
-                                    ^
-flash.c:206:20: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'Sector'
-     EraseInitStruct.Sector = flash_get_sector_info(flash_dest, NULL, NULL);
-                    ^
-flash.c:207:20: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'NbSectors'
-     EraseInitStruct.NbSectors = flash_get_sector_info(flash_dest + 4 * num_word32 - 1, NULL, NULL) - EraseInitStruct.Sector + 1;
-                    ^
-flash.c:207:117: error: 'FLASH_EraseInitTypeDef {aka struct <anonymous>}' has no member named 'Sector'
-     EraseInitStruct.NbSectors = flash_get_sector_info(flash_dest + 4 * num_word32 - 1, NULL, NULL) - EraseInitStruct.Sector + 1;
-                                                                                                                     ^
-make: *** [build-STM32F3DISC/flash.o] Error 1
+system_stm32.c:541:98: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLM'
+     uint32_t vco_out = RCC_OscInitStruct.PLL.PLLN * (HSE_VALUE / 1000000) / RCC_OscInitStruct.PLL.PLLM;
+                                                                                                  ^
+system_stm32.c:542:58: error: 'RCC_PLLInitTypeDef {aka struct <anonymous>}' has no member named 'PLLP'
+     uint32_t sysclk_mhz = vco_out / RCC_OscInitStruct.PLL.PLLP;
+                                                          ^
+make: *** [build-STM32F3DISC/system_stm32.o] Error 1
