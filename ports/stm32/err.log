@@ -1,22 +1,15 @@
-system_stm32f3.c: In function 'SystemClock_Config':
-system_stm32f3.c:213:3: error: implicit declaration of function '__PWR_CLK_ENABLE' [-Werror=implicit-function-declaration]
-   __PWR_CLK_ENABLE();
-   ^
-system_stm32f3.c:218:32: error: 'MICROPY_HW_CLK_HSE_STATE' undeclared (first use in this function)
-   RCC_OscInitStruct.HSEState = MICROPY_HW_CLK_HSE_STATE;
-                                ^
-system_stm32f3.c:218:32: note: each undeclared identifier is reported only once for each function it appears in
-system_stm32f3.c:226:57: error: 'RCC_CLOCKTYPE_HCKL' undeclared (first use in this function)
-   RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCKL | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-                                                         ^
-system_stm32f3.c:233:2: error: implicit declaration of function '__fatal_error' [-Werror=implicit-function-declaration]
-  __fatal_error("HAL_RCC_OscConfig");
-  ^
-system_stm32f3.c:235:7: error: implicit declaration of function 'HAL_RCC_ClkConfig' [-Werror=implicit-function-declaration]
-   if (HAL_RCC_ClkConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK){
-       ^
-system_stm32f3.c:235:45: error: 'FLASH_LATENCY_1' undeclared (first use in this function)
-   if (HAL_RCC_ClkConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK){
-                                             ^
-cc1: all warnings being treated as errors
-make: *** [build-STM32F3DISC/system_stm32f3.o] Error 1
+build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0x8): undefined reference to `dma_I2C_1_TX'
+build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0xc): undefined reference to `dma_I2C_1_RX'
+build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0x1c): undefined reference to `dma_I2C_2_TX'
+build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0x20): undefined reference to `dma_I2C_2_RX'
+build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x4): undefined reference to `dma_SPI_1_TX'
+build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x8): undefined reference to `dma_SPI_1_RX'
+build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x10): undefined reference to `dma_SPI_2_TX'
+build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x14): undefined reference to `dma_SPI_2_RX'
+build-STM32F3DISC/machine_i2c.o: In function `machine_hard_i2c_readfrom':
+machine_i2c.c:(.text.machine_hard_i2c_readfrom+0xe): undefined reference to `i2c_readfrom'
+build-STM32F3DISC/machine_i2c.o: In function `machine_hard_i2c_writeto':
+machine_i2c.c:(.text.machine_hard_i2c_writeto+0xe): undefined reference to `i2c_writeto'
+build-STM32F3DISC/machine_i2c.o: In function `machine_hard_i2c_init':
+machine_i2c.c:(.text.machine_hard_i2c_init+0x6): undefined reference to `i2c_init'
+make: *** [build-STM32F3DISC/firmware.elf] Error 1

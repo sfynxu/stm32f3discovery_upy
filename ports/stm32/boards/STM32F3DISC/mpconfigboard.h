@@ -2,7 +2,7 @@
 #define MICROPY_HW_MCU_NAME         "STM32F303xC"
 
 #define MICROPY_HW_HAS_SWITCH       (1)
-#define MICROPY_HW_HAS_FLASH        (0) // deactivated for test
+#define MICROPY_HW_HAS_FLASH        (1) // deactivated for test
 #define MICROPY_HW_ENABLE_RNG       (0) // deactivated for test
 #define MICROPY_HW_ENABLE_RTC       (1)
 #define MICROPY_HW_ENABLE_DAC       (1) //1 disabled for testing
