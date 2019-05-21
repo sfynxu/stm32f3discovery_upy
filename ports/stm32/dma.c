@@ -222,6 +222,10 @@ const dma_descr_t dma_DAC_2_TX = { DMA1_Channel4, HAL_REMAPDMA_TIM7_DAC1_CH2_DMA
 //const dma_descr_t dma_SPI_1_RX = { DMA2_Channel3, HAL_DMA2_CH3_SPI1_RX, dma_id_9, &dma_init_struct_spi_i2c};
 //const dma_descr_t dma_SPI_1_TX = { DMA2_Channel4, HAL_DMA2_CH4_SPI1_TX, dma_id_10, &dma_init_struct_spi_i2c};
 
+const dma_descr_t dma_I2C_1_TX = {DMA1_Channel1, HAL_DMA1_CH1_I2C_TX, dma_id_1, &dma_init_struct_spi_i2c};
+const dma_descr_t dma_I2C_1_RX = {DMA1_Channel2, HAL_DMA1_CH2_I2C_TX, dma_id_2, &dma_init_struct_spi_i2c};
+
+
 static const uint8_t dma_irqn[NSTREAM] = {
     DMA1_Channel1_IRQn, //DMA1_Ch1_IRQn
     DMA1_Channel2_IRQn, //DMA1_Ch2_3_DMA2_Ch1_2_IRQn,
