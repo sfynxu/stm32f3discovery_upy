@@ -181,7 +181,7 @@
   * @brief Include module's header file 
   */
 // Differs from f4 discovery
-// #include "stm32f3xx_hal.h"
+ #include "stm32f3xx_hal.h"
 
 #ifdef HAL_RCC_MODULE_ENABLED
  #include "stm32f3xx_hal_rcc.h"
