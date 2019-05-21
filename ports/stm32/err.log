@@ -1,15 +1,7 @@
-build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0x8): undefined reference to `dma_I2C_1_TX'
-build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0xc): undefined reference to `dma_I2C_1_RX'
-build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0x1c): undefined reference to `dma_I2C_2_TX'
-build-STM32F3DISC/pyb_i2c.o:(.rodata.pyb_i2c_obj+0x20): undefined reference to `dma_I2C_2_RX'
-build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x4): undefined reference to `dma_SPI_1_TX'
-build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x8): undefined reference to `dma_SPI_1_RX'
-build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x10): undefined reference to `dma_SPI_2_TX'
-build-STM32F3DISC/spi.o:(.rodata.spi_obj+0x14): undefined reference to `dma_SPI_2_RX'
-build-STM32F3DISC/machine_i2c.o: In function `machine_hard_i2c_readfrom':
-machine_i2c.c:(.text.machine_hard_i2c_readfrom+0xe): undefined reference to `i2c_readfrom'
-build-STM32F3DISC/machine_i2c.o: In function `machine_hard_i2c_writeto':
-machine_i2c.c:(.text.machine_hard_i2c_writeto+0xe): undefined reference to `i2c_writeto'
-build-STM32F3DISC/machine_i2c.o: In function `machine_hard_i2c_init':
-machine_i2c.c:(.text.machine_hard_i2c_init+0x6): undefined reference to `i2c_init'
-make: *** [build-STM32F3DISC/firmware.elf] Error 1
+dma.c:225:50: error: 'HAL_DMA1_CH1_I2C_TX' undeclared here (not in a function)
+ const dma_descr_t dma_I2C_1_TX = {DMA1_Channel1, HAL_DMA1_CH1_I2C_TX, dma_id_1, &dma_init_struct_spi_i2c};
+                                                  ^
+dma.c:226:50: error: 'HAL_DMA1_CH2_I2C_TX' undeclared here (not in a function)
+ const dma_descr_t dma_I2C_1_RX = {DMA1_Channel2, HAL_DMA1_CH2_I2C_TX, dma_id_2, &dma_init_struct_spi_i2c};
+                                                  ^
+make: *** [build-STM32F3DISC/dma.o] Error 1
