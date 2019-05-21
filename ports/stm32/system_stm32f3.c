@@ -84,7 +84,7 @@
   */
 
 #include "stm32f3xx.h"
-
+#include "stm32f3xx_hal_rcc.h"
 /**
   * @}
   */
@@ -202,6 +202,62 @@ void SystemInit(void)
 #else
   SCB->VTOR = FLASH_BASE | VECT_TAB_OFFSET; /* Vector Table Relocation in Internal FLASH */
 #endif
+}
+
+void SystemClock_Config(void){
+  
+  RCC_ClkInitTypeDef RCC_ClkInitStruct;
+  RCC_OscInitTypeDef RCC_OscInitStruct;
+//  RCC_PeriphCLKInitTypeDef PeriphClkInitStruct;
+  
+  __PWR_CLK_ENABLE();
+
+  __HAL_RCC_LSEDRIVE_CONFIG(RCC_LSEDRIVE_LOW);
+  
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.HSEState = MICROPY_HW_CLK_HSE_STATE;
+  RCC_OscInitStruct.HSIState = RCC_HSI_OFF;
+  RCC_OscInitStruct.LSIState = RCC_LSI_OFF;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLMUL = RCC_PLL_MUL2;
+//  RCC_OscInitStruct.PLL.PREDIV = RCC_CFGR_PLLXTPRE_HSE_PREDIV_DIV1;
+   
+  RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCKL | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
+
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
+
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK){
+	__fatal_error("HAL_RCC_OscConfig");
+  }
+  if (HAL_RCC_ClkConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK){
+	__fatal_error("HAL_RCC_OscConfig");
+  }
+
+ /* HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+  NVIC_SetPriority(SysTick_IRQn, NVIC_EncodePriority(NVIC_PRIORITYGROUP_4, TICK_INT_PRIORITY, 0));*/
+
+/*
+  // Set flash latency to 1 because SYSCLK > 24MHz
+  FLASH->ACR = (FLASH->ACR & ~0x7) | 0x1;
+
+  // Use the 48MHz internal oscillator
+  RCC->CR2 |= RCC_CR2_HSI48ON;
+  while((RCC->CR2 & RCC_CR2_HSI48RDY) == 0){
+  }
+  RCC->CFGR |= 3 << RCC_CFGR_SW_Pos;
+  while(((RCC->CFGGR >> RCC_CFGR_SWS_Pos) & 0x3) != 0x03){
+    // Wait for SYSCLK source to change
+  }
+  
+  SystemCoreClockUpdate();
+
+  HAL_SYSTICK_Config(HAL_RCC_GetHCLKFreq()/1000);
+  HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+ */
 }
 
 /**
