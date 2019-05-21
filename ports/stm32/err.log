@@ -1,7 +1,0 @@
-dma.c:225:50: error: 'HAL_REMAPDMA_I2C1_TX_DMA1_CH6' undeclared here (not in a function)
- const dma_descr_t dma_I2C_1_TX = {DMA1_Channel6, HAL_REMAPDMA_I2C1_TX_DMA1_CH6, dma_id_6, &dma_init_struct_spi_i2c};
-                                                  ^
-dma.c:226:50: error: 'HAL_REMAPDMA_I2C1_RX_DMA1_CH5' undeclared here (not in a function)
- const dma_descr_t dma_I2C_1_RX = {DMA1_Channel5, HAL_REMAPDMA_I2C1_RX_DMA1_CH5, dma_id_5, &dma_init_struct_spi_i2c};
-                                                  ^
-make: *** [build-STM32F3DISC/dma.o] Error 1
